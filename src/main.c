@@ -11,6 +11,7 @@
 #include "libtropic.h"
 #include "libtropic_port.h"
 #include "libtropic_common.h"
+#include "libtropic_functional_tests.h"
 
 int main(int argc, char *argv[]) {
 
