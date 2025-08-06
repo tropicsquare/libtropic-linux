@@ -22,8 +22,8 @@ int main(int argc, char *argv[]) {
     device.spi_speed = 1000000; // 1 MHz
     device.gpio_cs_num = 25;    // GPIO 25 as on RPi shield.
 
-    lt_handle_t __lt_handle__;
-    __lt_handle__.l2.device = &device;
+    lt_handle_t __lt_handle__ = {0};
+    __lt_handle__.l2.device   = &device;
 
     #ifdef LT_BUILD_TESTS
     #include "lt_test_registry.c.inc"

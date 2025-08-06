@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.21.0)
 #   Paths and setup                                                       #
 #                                                                         #
 ###########################################################################
-set(PATH_LIBTROPIC "libtropic/")
+set(PATH_LIBTROPIC "../libtropic/")
 
 
 ###########################################################################
@@ -16,7 +16,7 @@ set(PATH_LIBTROPIC "libtropic/")
 ###########################################################################
 project(libtropic_linux
         VERSION 0.1.0
-        DESCRIPTION "Example of libtropic usage in Linux environment"
+        DESCRIPTION "Example of libtropic usage in Linux environment using kernel SPI driver"
         LANGUAGES C)
 
 ###########################################################################
