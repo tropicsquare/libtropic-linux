@@ -9,8 +9,6 @@ Contributors, please follow [guidelines](https://github.com/tropicsquare/libtrop
 We support multiple backends for communication with the Tropic01 chip:
 * [Generic SPI driver](./generic-linux-spi/)
     * Compatible with most Linux-based systems, also with Raspberry Pi.
-* [Raspberry Pi WiringPi SPI driver -- TBA]()
-    * Raspberry Pi specific driver.
 * [UART driver for USB dongle -- TBA]()
 
 ## Dependencies
