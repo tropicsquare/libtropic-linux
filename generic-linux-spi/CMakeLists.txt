@@ -48,6 +48,7 @@ set(SOURCES
 
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/${PATH_LIBTROPIC}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/${PATH_LIBTROPIC}/hal/port/unix
 )
 
 ###########################################################################
