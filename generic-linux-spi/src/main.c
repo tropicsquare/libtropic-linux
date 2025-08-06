@@ -15,7 +15,12 @@
 
 int main(int argc, char *argv[]) {
 
-    // This will setup mappings compatible with RPi and our RPi shield.
+    ////////////////////////////////////////////////////////////////
+    // DEVICE MAPPINGS                                            //
+    //                                                            //
+    // Modify this according to your environment. Default values  //
+    // are compatible with RPi and our RPi shield.                //
+    ////////////////////////////////////////////////////////////////
     lt_dev_unix_spi_t device = {0};
     strcpy(device.gpio_dev, "/dev/gpiochip0");
     strcpy(device.spi_dev, "/dev/spidev0.0");
