@@ -1,0 +1,52 @@
+/**
+ * @file main.c
+ * @author Tropic Square s.r.o.
+ *
+ * @license For the license see file LICENSE.txt file in the root directory of this source tree.
+ */
+
+
+#include <string.h>
+#include <time.h>
+
+#include "libtropic.h"
+#include "libtropic_port.h"
+#include "lt_port_unix_usb_dongle.h"
+#include "libtropic_common.h"
+#include "libtropic_functional_tests.h"
+#include "libtropic_examples.h"
+#include "libtropic_logging.h"
+
+int main(int argc, char *argv[]) {
+
+    ////////////////////////////////////////////////////////////////
+    // DEVICE MAPPINGS                                            //
+    //                                                            //
+    // Modify this according to your environment. Usually you     //
+    // have to change at least the dev_path, as it is dynamically //
+    // assigned by the OS (if you have multiple USB serial        //
+    // devices).                                                  //
+    ////////////////////////////////////////////////////////////////
+    lt_dev_unix_uart_t device = {0};
+    strcpy(device.dev_path, "/dev/ttyACM0");
+    device.baud_rate = 115200;
+    device.rng_seed  = time(NULL);
+
+    LT_LOG_INFO("RNG initialized with seed=%u.", device.rng_seed);
+
+    lt_handle_t __lt_handle__ = {0};
+    __lt_handle__.l2.device   = &device;
+
+    #ifdef LT_BUILD_TESTS
+    #include "lt_test_registry.c.inc"
+    #endif
+
+    // When examples are being built, special variable containing example return value is defined.
+    // Otherwise, 0 is always returned (in case of building tests).
+    #ifdef LT_BUILD_EXAMPLES
+    #include "lt_ex_registry.c.inc"
+        return __lt_ex_return_val__;
+    #else
+        return 0;
+    #endif
+}
