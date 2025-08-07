@@ -43,12 +43,12 @@ target_compile_options(tropic PRIVATE -ffunction-sections -fdata-sections)
 
 set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/${PATH_LIBTROPIC}/hal/port/unix/lt_port_unix.c
+    ${PATH_LIBTROPIC}/hal/port/unix/lt_port_unix_spi.c
 )
 
 include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/${PATH_LIBTROPIC}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/${PATH_LIBTROPIC}/hal/port/unix
+    ${PATH_LIBTROPIC}/include
+    ${PATH_LIBTROPIC}/hal/port/unix
 )
 
 ###########################################################################
