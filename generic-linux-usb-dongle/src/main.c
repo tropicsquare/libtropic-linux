@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
     // assigned by the OS (if you have multiple USB serial        //
     // devices).                                                  //
     ////////////////////////////////////////////////////////////////
-    lt_dev_unix_uart_t device = {0};
+    lt_dev_unix_usb_dongle_t device = {0};
     strcpy(device.dev_path, "/dev/ttyACM0");
     device.baud_rate = 115200;
     device.rng_seed  = time(NULL);
