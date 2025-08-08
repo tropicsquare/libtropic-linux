@@ -73,6 +73,12 @@ INFO    [  69] Deinitializing handle
 ```
 
 ## Building Functional Tests
+
+> [!WARNING]
+> Some tests make irreversible changes to the chip, such as writing pairing keys. Those irreversible
+> tests contain `_ire_` in their name. On the other hand, reversible tests are marked `_rev_`
+> and are generally safe to run, as they do only temporary changes and always do a clean up.
+
 To build functional test suite from libtropic, pass `-DLT_BUILD_TESTS=1` to CMake:
 ```bash
 cmake -DLT_BUILD_TESTS=1 ..
