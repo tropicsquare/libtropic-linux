@@ -43,4 +43,6 @@ following diagram:
 ```
 
 > [!NOTE]
-> Note that GPIO25 is intentionally used for chip select, as we control chip select manually. Do not connect TROPIC01's chip select anywhere else!
+> Note that GPIO25 is intentionally used for chip select, as we control chip select manually.
+> Do not connect TROPIC01's chip select anywhere else, unless you change default settings in `main.c`
+> (and you know what are you doing).
