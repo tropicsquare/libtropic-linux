@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
     lt_dev_unix_spi_t device = {0};
     strcpy(device.gpio_dev, "/dev/gpiochip0");
     strcpy(device.spi_dev, "/dev/spidev0.0");
-    device.spi_speed    = 1000000;      // 1 MHz
+    device.spi_speed    = 1000000;      // 1 MHz. Although TROPIC01 supports higher speeds, this is usable also for longer connections.
     device.gpio_cs_num  = 25;           // GPIO 25 as on RPi shield.
     device.rng_seed     = time(NULL);
 
