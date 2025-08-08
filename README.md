@@ -7,15 +7,16 @@ This repository contains examples of libtropic's usage on Linux-based platforms.
 Contributors, please follow [guidelines](https://github.com/tropicsquare/libtropic-stm32/blob/master/CONTRIBUTING.md).
 
 We support multiple backends for communication with the Tropic01 chip:
-* [Generic SPI driver](./generic-linux-spi/)
-    * Compatible with most Linux-based systems, also with Raspberry Pi.
-* [UART driver for USB dongle -- TBA]()
+* [Generic SPI driver](./generic-linux-spi/README.md)
+    * Compatible with Linux-based systems with SPI interface including Raspberry Pi.
+* [UART driver for TS13 USB dongle](./generic-linux-usb-dongle/README.md)
+    * Compatible only with our [TS13 dongle](https://github.com/tropicsquare/ts-dev-kits/blob/main/ts1302-usb-dev-kit.md).
 
 ## Dependencies
 * cmake
 * gcc
 
-Each backend has its own additional dependencies.
+Each backend may have its own additional dependencies and requirements. Check out README.md in the backend's directory.
 
 ## Cloning
 
