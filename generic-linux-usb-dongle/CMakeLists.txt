@@ -75,6 +75,12 @@ if (LT_BUILD_EXAMPLES)
         add_executable(${exe_name} ${SOURCES})
         target_link_libraries(${exe_name} PRIVATE tropic)
 
+        # Apply the strict compilation flags
+        # (they are already applied for libtropic from the libtropic's CMakeLists.txt)
+        if(LT_STRICT_COMP_FLAGS)
+            target_link_libraries(${exe_name} PRIVATE libtropic::strict_comp_flags)
+        endif()
+
         # Enable example registry using LT_BUILD_EXAMPLES and choose correct example for the binary.
         target_compile_definitions(${exe_name} PRIVATE LT_BUILD_EXAMPLES)
         target_compile_definitions(${exe_name} PRIVATE ${example_macro})
@@ -114,6 +120,12 @@ if(LT_BUILD_TESTS)
         # Define executable (separate for each test) and link dependencies.
         add_executable(${exe_name} ${SOURCES})
         target_link_libraries(${exe_name} PRIVATE tropic)
+
+        # Apply the strict compilation flags
+        # (they are already applied for libtropic from the libtropic's CMakeLists.txt)
+        if(LT_STRICT_COMP_FLAGS)
+            target_link_libraries(${exe_name} PRIVATE libtropic::strict_comp_flags)
+        endif()
 
         # Enable test registry using LT_BUILD_TESTS and choose correct test for the binary.
         target_compile_definitions(${exe_name} PRIVATE LT_BUILD_TESTS)

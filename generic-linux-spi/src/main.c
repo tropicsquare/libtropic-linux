@@ -10,15 +10,13 @@
 #include <time.h>
 
 #include "libtropic.h"
-#include "libtropic_port.h"
 #include "libtropic_common.h"
 #include "libtropic_functional_tests.h"
 #include "libtropic_examples.h"
 #include "lt_port_unix_spi.h"
 #include "libtropic_logging.h"
 
-int main(int argc, char *argv[]) {
-
+int main(void) {
     ////////////////////////////////////////////////////////////////
     // DEVICE MAPPINGS                                            //
     //                                                            //
@@ -28,8 +26,8 @@ int main(int argc, char *argv[]) {
     lt_dev_unix_spi_t device = {0};
     strcpy(device.gpio_dev, "/dev/gpiochip0");
     strcpy(device.spi_dev, "/dev/spidev0.0");
-    device.spi_speed    = 1000000;      // 1 MHz. Although TROPIC01 supports higher speeds, this is usable also for longer connections.
-    device.gpio_cs_num  = 25;           // GPIO 25 as on RPi shield.
+    device.spi_speed    = 10000000;  // 10 MHz (change if needed).
+    device.gpio_cs_num  = 25;        // GPIO 25 as on RPi shield.
     device.rng_seed     = time(NULL);
 
     LT_LOG_INFO("RNG initialized with seed=%u.", device.rng_seed);
