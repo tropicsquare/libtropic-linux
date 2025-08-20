@@ -28,18 +28,10 @@ cd libtropic-linux
 git submodule update --init --recursive
 ```
 
-## Compiling and Running Examples
+## Building and Running Examples
+All available examples can be found [here](https://github.com/tropicsquare/libtropic/tree/master/examples).
 
-To compile all examples, pass `-DLT_BUILD_EXAMPLES=1` to CMake.
-```bash
-cmake -DLT_BUILD_EXAMPLES=1 ..
-```
-> [!NOTE]
-> Examples require SH0 private key to establish a secure session with TROPIC01. CMake variable `LT_SH0_PRIV_PATH` is used for that and its default value is set to path to the SH0 private key from the currently used `lab_batch_package`, found in `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`. Naturally, it can be overridden with another path to SH0 private key.
-
-All available examples are [here](https://github.com/tropicsquare/libtropic/tree/master/examples).
-
-All steps to build examples using the Generic SPI backend:
+To build examples, switch to one of the target directories (in this case, the `generic-linux-spi` target), and do the following:
 ```bash
 cd generic-linux-spi/
 mkdir build
@@ -47,14 +39,11 @@ cd build
 cmake -DLT_BUILD_EXAMPLES=1 ..
 make
 ```
-
-Each example will be compiled as a separate binary in the build directory. Just run any example as
-an any other executable:
+For each example, a binary will be created in the build directory. For example, upon running the `lt_ex_hello_world` example as:
 ```bash
 ./lt_ex_hello_world
 ```
-
-You will see some output on stdout similar to this:
+you should see some output similar to this:
 ```
 INFO    [  21] ======================================
 INFO    [  22] ==== TROPIC01 Hello World Example ====
@@ -72,28 +61,39 @@ INFO    [  61] Aborting Secure Session
 INFO    [  69] Deinitializing handle
 ```
 
+> [!IMPORTANT]
+> When `LT_BUILD_EXAMPLES` are set, there has to be a way to define the SH0 private key for the TROPIC01's pairing key slot 0, because both the examples and the tests depend on it. For this purpose, the CMake variable `LT_SH0_PRIV_PATH` is used, which should hold the path to the file with the SH0 private key in PEM or DER format. By default, the path is set to the currently used lab batch package, found in `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`. But it can be overriden by the user either from the command line when executing CMake (switch `-DLT_SH0_PRIV_PATH=<path>`), or from a child CMakeLists.txt.
+
 ## Building Functional Tests
+All available functional tests can be found [here](https://github.com/tropicsquare/libtropic/tree/master/tests/functional/).
 
 > [!WARNING]
 > Some tests make irreversible changes to the chip, such as writing pairing keys. Those irreversible
 > tests contain `_ire_` in their name. On the other hand, reversible tests are marked `_rev_`
 > and are generally safe to run, as they do only temporary changes and always do a clean up.
 
-To build functional test suite from libtropic, pass `-DLT_BUILD_TESTS=1` to CMake:
+To build functional tests, switch to one of the target directories (in this case, the `generic-linux-spi` target), and do the following:
 ```bash
+cd generic-linux-spi/
+mkdir build
+cd build
 cmake -DLT_BUILD_TESTS=1 ..
+make
 ```
 
-> [!NOTE]
-> Functional tests require SH0 private key to establish a secure session with TROPIC01. CMake variable `LT_SH0_PRIV_PATH` is used for that and its default value is set to path to the SH0 private key from the currently used `lab_batch_package`, found in `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`. Naturally, it can be overridden with another path to SH0 private key.
+For each test, a binary will be created in the build directory.
 
-For each test, a binary will be created in the build directory. Normally, we use CTest for handling the functional tests.
+> [!IMPORTANT]
+> When `LT_BUILD_TESTS` are set, there has to be a way to define the SH0 private key for the TROPIC01's pairing key slot 0, because both the examples and the tests depend on it. For this purpose, the CMake variable `LT_SH0_PRIV_PATH` is used, which should hold the path to the file with the SH0 private key in PEM or DER format. By default, the path is set to the currently used lab batch package, found in `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`. But it can be overriden by the user either from the command line when executing CMake (switch `-DLT_SH0_PRIV_PATH=<path>`), or from a child CMakeLists.txt.
+
+Normally, we use CTest for handling the functional tests.
 
 To launch all tests:
 ```bash
 ctest
 ```
-*Tip: To see all output use `--verbose`.*
+> [!TIP]
+> To see all output use `--verbose`.
 
 To launch a selected test:
 ```bash
