@@ -25,10 +25,6 @@ Choose instruction based on hardware you want to use:
 * [Raspberrypi shield](./generic-linux-spi/README.md) (also compatible with linux systems where SPI interface is connected directly to chip)
 * [USB devkit TS1302](./generic-linux-usb-dongle/README.md)
 
-
-
-* [Raspberrypi shield](https://github.com/tropicsquare/tropic01-raspberrypi-shield-hw)
-
 ### License
 
 See the [LICENSE.md](LICENSE.md) file in the root of this repository or consult license information at [Tropic Square website](https://tropicsquare.com/license).
