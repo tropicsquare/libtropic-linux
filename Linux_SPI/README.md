@@ -30,7 +30,7 @@ For each example, a binary will be created in the build directory. Once all exam
 # Recommended First Steps
 
 > [!IMPORTANT]
-> Befor further evaluation, first display and save your TROPIC01's chip ID and firmware versions for future and then update TROPIC01 chip to latest firmwares!
+> Before further evaluation, first display and save your TROPIC01's chip ID and firmware versions for future and then update TROPIC01 chip to latest firmwares!
 
 ## Display And Save Chip ID And Fw Versions
 To display actual versions of internal firmwares and details from CHIP ID data field, execute following example:
