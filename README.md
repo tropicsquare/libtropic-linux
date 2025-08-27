@@ -22,8 +22,8 @@ Example projects in separate folders represent different hardware connections of
 Because [Tropic Square](https://www.tropicsquare.com) provides not only [TROPIC01](https://www.tropicsquare.com/tropic01) in a form of a **silicon chip**, but also in a form of **various shields** and **devkits**, building instructions differ.
 
 Choose instruction based on hardware you want to use:
-* [Raspberrypi shield](./generic-linux-spi/README.md) (also compatible with linux systems where SPI interface is connected directly to chip)
-* [USB devkit TS1302](./generic-linux-usb-dongle/README.md)
+* [Raspberrypi shield](./Linux_SPI/README.md) (also compatible with linux systems where SPI interface is connected directly to chip)
+* [USB devkit TS1302](./TS1302_devkit/README.md)
 
 ### License
 
