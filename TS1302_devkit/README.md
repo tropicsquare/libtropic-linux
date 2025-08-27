@@ -1,5 +1,5 @@
-# generic-linux-usb-dongle port
-This port is compatible only with Linux-based systems and our [USB devkit](https://github.com/tropicsquare/tropic01-stm32u5-usb-devkit-hw).
+# TS1302 devkit's project
+This project is compatible with Linux-based systems and our [USB devkit](https://github.com/tropicsquare/tropic01-stm32u5-usb-devkit-hw) - follow the link to get more details about this devkit itself, including schematics, design files and manufacturing data.
 
 ## Requirements
 You need permissions to access the USB UART interfaces. Depending on your distribution, you need to be
@@ -12,7 +12,7 @@ You need to have:
 * `gcc` (Could be installed with `sudo apt install gcc`)
 
 
-## Build All Examples
+# Build
 
 All available examples are taken from [`libtropic`](https://github.com/tropicsquare/libtropic/tree/master/examples).
 
@@ -24,21 +24,21 @@ cd build
 cmake -DLT_BUILD_EXAMPLES=1 ..
 make
 ```
-For each example, a binary will be created in the build directory.
+For each example, a binary will be created in the build directory. Once all examples are built, continue with [First steps](#first-steps).
 
-## Recommended First Steps
+# Recommended First Steps
 
 > [!IMPORTANT]
 > Befor further evaluation, first display and save your TROPIC01's chip ID and firmware versions for future and then update TROPIC01 chip to latest firmwares!
 
-### How To - Display And Save Chip ID And Fw Versions
+### Display And Save Chip ID And Fw Versions
 To display actual versions of internal firmwares and details from CHIP ID data field, execute following example:
 ```bash
 ./lt_ex_show_chip_id_and_fwver
 ```
 We recommend to save printed output for future reference.
 
-### How To - Update Internal Firmwares
+### Update Internal Firmwares
 
 To update both internal firmwares to latest versions execute following example:
 ```bash
@@ -49,7 +49,7 @@ After successfull execution your chip will contain latest firmwares and will be 
 
 
 
-## Building and Running Other Examples
+# Building and Running Other Examples
 
 ```
 For each built example, a binary was created in the build directory. For example, upon running the `lt_ex_hello_world` example as:
@@ -80,7 +80,7 @@ INFO    [  69] Deinitializing handle
 > [!WARNING]
 > Some examples causes irreversible changes to chip. For more detail read [`README.md`](libtropic/examples/README.md).
 
-## Building Functional Tests
+# Building Functional Tests
 
  > [!NOTE]
  > This is for developers only.
