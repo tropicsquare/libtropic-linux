@@ -1,11 +1,10 @@
-# generic-linux-spi port
+# Linux SPI project
 This port should be compatible with most Linux-based system with hardware SPI interface, including
-popular single-board computers such as the Raspberry Pi.
+popular single-board computers such as the Raspberry Pi. It is compatible with our [Raspberrypi shield](https://github.com/tropicsquare/tropic01-raspberrypi-shield-hw) - follow the link to get more details about this shield itself, including schematics, design files and manufacturing data.
 
 ## Dependencies and Requirements
 
 You need to have:
-
 * SPI kernel module enabled.
     * On Raspberry Pi you can use `raspi-config` to enable the module.
 * Permissions to access the SPI interface.
@@ -14,7 +13,7 @@ You need to have:
 * `gcc` (Could be installed with `sudo apt install gcc`)
 
 
-## Build All Examples
+# Build All Examples
 
 All available examples are taken from [`libtropic`](https://github.com/tropicsquare/libtropic/tree/master/examples).
 
@@ -26,21 +25,21 @@ cd build
 cmake -DLT_BUILD_EXAMPLES=1 ..
 make
 ```
-For each example, a binary will be created in the build directory.
+For each example, a binary will be created in the build directory. Once all examples are built, continue with following chapter.
 
-## Recommended First Steps
+# Recommended First Steps
 
 > [!IMPORTANT]
 > Befor further evaluation, first display and save your TROPIC01's chip ID and firmware versions for future and then update TROPIC01 chip to latest firmwares!
 
-### How To - Display And Save Chip ID And Fw Versions
+## Display And Save Chip ID And Fw Versions
 To display actual versions of internal firmwares and details from CHIP ID data field, execute following example:
 ```bash
 ./lt_ex_show_chip_id_and_fwver
 ```
 We recommend to save printed output for future reference.
 
-### How To - Update Internal Firmwares
+## Update Internal Firmwares
 
 To update both internal firmwares to latest versions execute following example:
 ```bash
