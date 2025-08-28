@@ -2,7 +2,7 @@
 
 This repository contains examples of our official SDK [`libtropic`](https://github.com/tropicsquare/libtropic)'s usage on Linux-based platforms.
 
-Contributors, please follow [guidelines](https://github.com/tropicsquare/libtropic-stm32/blob/master/CONTRIBUTING.md).
+Contributors, please follow [guidelines](https://github.com/tropicsquare/libtropic-linux/blob/master/CONTRIBUTING.md).
 
 
 ## Clone

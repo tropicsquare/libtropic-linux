@@ -49,6 +49,10 @@ After successfull execution your chip will contain latest firmwares and will be 
 
 # Building and Running Other Examples
 
+> [!WARNING]
+> Some examples causes irreversible changes to chip. For more detail read [`README.md`](https://github.com/tropicsquare/libtropic/tree/master/examples/).
+
+
 For each built example, a binary was created in the build directory. For example, upon running the `lt_ex_hello_world` example as:
 ```bash
 ./lt_ex_hello_world
@@ -74,20 +78,14 @@ INFO    [  69] Deinitializing handle
 > [!IMPORTANT]
 > When `LT_BUILD_EXAMPLES` are set, there has to be a way to define the SH0 private key for the TROPIC01's pairing key slot 0, because both the examples and the tests depend on it. For this purpose, the CMake variable `LT_SH0_PRIV_PATH` is used, which should hold the path to the file with the SH0 private key in PEM or DER format. By default, the path is set to the currently used lab batch package, found in `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`. But it can be overriden by the user either from the command line when executing CMake (switch `-DLT_SH0_PRIV_PATH=<path>`), or from a child CMakeLists.txt.
 
-> [!WARNING]
-> Some examples causes irreversible changes to chip. For more detail read [`README.md`](libtropic/examples/README.md).
-
 # Building Functional Tests
-
- > [!NOTE]
- > This is for developers only.
-
-All available functional tests can be found [here](https://github.com/tropicsquare/libtropic/tree/master/tests/functional/).
 
 > [!WARNING]
 > Some tests make irreversible changes to the chip, such as writing pairing keys. Those irreversible
 > tests contain `_ire_` in their name. On the other hand, reversible tests are marked `_rev_`
 > and are generally safe to run, as they do only temporary changes and always do a clean up.
+
+All available functional tests can be found [here](https://github.com/tropicsquare/libtropic/tree/master/tests/functional/).
 
 To build functional tests do the following:
 ```bash
