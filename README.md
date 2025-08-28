@@ -17,7 +17,7 @@ git submodule update --init --recursive
 
 Example projects in separate folders represent different hardware connections of TROPIC01. They all wrap [`libtropic`](https://github.com/tropicsquare/libtropic) and are ready to be compiled and executed under linux environment.
 
-### Supported hardware
+### Supported Hardware
 
 Because [Tropic Square](https://www.tropicsquare.com) provides not only [TROPIC01](https://www.tropicsquare.com/tropic01) in a form of a **silicon chip**, but also in a form of **various shields** and **devkits**, building instructions differ.
 
