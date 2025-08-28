@@ -15,14 +15,20 @@ cd libtropic-linux
 git submodule update --init --recursive
 ```
 
-Example projects in separate folders represent different hardware connections of TROPIC01. They all wrap [`libtropic`](https://github.com/tropicsquare/libtropic) and are ready to be compiled and executed under linux environment.
+ > [!IMPORTANT]
+ > Example projects in separate folders represent different hardware connections of TROPIC01. They all wrap [`libtropic`](https://github.com/tropicsquare/libtropic) and are ready to be compiled and executed under Linux environment.
 
 ### Supported Hardware
 
 Because [Tropic Square](https://www.tropicsquare.com) provides not only [TROPIC01](https://www.tropicsquare.com/tropic01) in a form of a **silicon chip**, but also in a form of **various shields** and **devkits**, building instructions differ.
 
+ > [!IMPORTANT]
+ > Before you start with various examples, we strongly recommend to do two things first:
+ > * Read CHIP ID and TROPIC01's firmware versions and **save printed output for future reference**
+ > * Update TROPIC01's both internal firmware to latest version.
+ 
 Choose instruction based on hardware you want to use:
-* [Raspberrypi shield](./Linux_SPI/README.md) (also compatible with linux systems where SPI interface is connected directly to chip)
+* [Raspberrypi shield](./Linux_SPI/README.md) (also compatible with Linux systems where SPI interface is connected directly to chip)
 * [USB devkit TS1302](./TS1302_devkit/README.md)
 
 ### License

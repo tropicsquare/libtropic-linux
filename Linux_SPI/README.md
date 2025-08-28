@@ -29,8 +29,10 @@ For each example, a binary will be created in the build directory. Once all exam
 
 # Recommended First Steps
 
-> [!IMPORTANT]
-> Before further evaluation, first display and save your TROPIC01's chip ID and firmware versions for future and then update TROPIC01 chip to latest firmwares!
+ > [!IMPORTANT]
+ > Before you start with various examples, we strongly recommend to do two things first:
+ > * Read CHIP ID and TROPIC01's firmware versions and **save printed output for future reference**
+ > * Update TROPIC01's both internal firmware to latest version.
 
 ## Display And Save Chip ID And Fw Versions
 To display actual versions of internal firmwares and details from CHIP ID data field, execute following example:
@@ -52,13 +54,12 @@ After successfull execution your chip will contain latest firmwares and will be 
 
 ## Building and Running Other Examples
 
-```
 For each built example, a binary was created in the build directory. For example, upon running the `lt_ex_hello_world` example as:
 ```bash
 ./lt_ex_hello_world
 ```
 you should see some output similar to this:
-```
+```bash
 INFO    [  21] ======================================
 INFO    [  22] ==== TROPIC01 Hello World Example ====
 INFO    [  23] ======================================
