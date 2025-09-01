@@ -14,8 +14,8 @@ git submodule update --init --recursive
 ## Dependencies And Requirements
 You need to have:
 * Access to USB UART interface (linux `dialout` group or silimar)
-* `cmake` (Could be installed with `sudo apt install cmake`)
-* `gcc` (Could be installed with `sudo apt install gcc`)
+* `cmake` (On Debian based system can be installed with `sudo apt install cmake`)
+* `gcc` (On Debian based system can be installed with `sudo apt install gcc`)
 
 
 # Build All Examples
@@ -86,7 +86,7 @@ INFO    [  69] Deinitializing handle
 ```
 
 > [!IMPORTANT]
-> When `LT_BUILD_EXAMPLES` are set, there has to be a way to define the SH0 private key for the TROPIC01's pairing key slot 0, because both the examples and the tests depend on it. For this purpose, the CMake variable `LT_SH0_PRIV_PATH` is used, which should hold the path to the file with the SH0 private key in PEM or DER format. By default, the path is set to the currently used lab batch package, found in `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`. But it can be overriden by the user either from the command line when executing CMake (switch `-DLT_SH0_PRIV_PATH=<path>`), or from a child CMakeLists.txt.
+> During build, SH0 keypair is automatically chosen from  `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`, this SH0 key is present in the majority of distributed TROPIC01 chips. In certain cases (first engineering samples) it might be necessary to manually set it (in PEM or DER format) with following cmake switch: `-DLT_SH0_PRIV_PATH=../libtropic/provisioning_data/sh0_priv_engineering_sample01.pem`
 
 # Building Functional Tests
 
@@ -108,7 +108,7 @@ make
 For each test, a binary will be created in the build directory, the same as when building examples.
 
 > [!IMPORTANT]
-> When `LT_BUILD_TESTS` are set, there has to be a way to define the SH0 private key for the TROPIC01's pairing key slot 0, because both the examples and the tests depend on it. For this purpose, the CMake variable `LT_SH0_PRIV_PATH` is used, which should hold the path to the file with the SH0 private key in PEM or DER format. By default, the path is set to the currently used lab batch package, found in `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`. But it can be overriden by the user either from the command line when executing CMake (switch `-DLT_SH0_PRIV_PATH=<path>`), or from a child CMakeLists.txt.
+> During build, SH0 keypair is automatically chosen from  `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`, this SH0 key is present in the majority of distributed TROPIC01 chips. In certain cases (first engineering samples) it might be necessary to manually set it (in PEM or DER format) with following cmake switch: `-DLT_SH0_PRIV_PATH=../libtropic/provisioning_data/sh0_priv_engineering_sample01.pem`
 
 We recommend to use CTest for handling of functional tests.
 

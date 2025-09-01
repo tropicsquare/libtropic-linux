@@ -18,7 +18,7 @@ Because [Tropic Square](https://www.tropicsquare.com) provides not only [TROPIC0
  > * Update TROPIC01's both internal firmware to latest version.
  
 Choose instruction based on hardware you want to use:
-* [Linux SPI](./Linux_SPI/README.md) (compatible with our [Raspberrypi shield](https://github.com/tropicsquare/tropic01-raspberrypi-shield-hw))
+* [Linux SPI](./Linux_SPI/README.md) (compatible with our [Raspberry Pi shield](https://github.com/tropicsquare/tropic01-raspberrypi-shield-hw))
 * [USB devkit TS1302](./TS1302_devkit/README.md) (compatible with our [USB devkit](https://github.com/tropicsquare/tropic01-stm32u5-usb-devkit-hw))
 
 ### License
