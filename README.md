@@ -5,16 +5,6 @@ This repository contains examples of our official SDK [`libtropic`](https://gith
 Contributors, please follow [guidelines](https://github.com/tropicsquare/libtropic-linux/blob/master/CONTRIBUTING.md).
 
 
-## Clone
-
-This repository must be cloned recursively, because it contains libtropic as a submodule.
-
-```bash
-git clone https://github.com/tropicsquare/libtropic-linux.git
-cd libtropic-linux
-git submodule update --init --recursive
-```
-
  > [!IMPORTANT]
  > Example projects in separate folders represent different hardware connections of TROPIC01. They all wrap [`libtropic`](https://github.com/tropicsquare/libtropic) and are ready to be compiled and executed under Linux environment.
 
@@ -28,9 +18,13 @@ Because [Tropic Square](https://www.tropicsquare.com) provides not only [TROPIC0
  > * Update TROPIC01's both internal firmware to latest version.
  
 Choose instruction based on hardware you want to use:
-* [Raspberrypi shield](./Linux_SPI/README.md) (also compatible with Linux systems where SPI interface is connected directly to chip)
-* [USB devkit TS1302](./TS1302_devkit/README.md)
+* [Linux SPI](./Linux_SPI/README.md) (compatible with our [Raspberrypi shield](https://github.com/tropicsquare/tropic01-raspberrypi-shield-hw))
+* [USB devkit TS1302](./TS1302_devkit/README.md) (compatible with our [USB devkit](https://github.com/tropicsquare/tropic01-stm32u5-usb-devkit-hw))
 
 ### License
 
 See the [LICENSE.md](LICENSE.md) file in the root of this repository or consult license information at [Tropic Square website](https://tropicsquare.com/license).
+
+# FAQ
+
+If you encounter any issue, please have a look [here](./../FAQ.md) before filling an issue here or before reaching out to our [support](https://www.tropicsquare.com/contact-us) .

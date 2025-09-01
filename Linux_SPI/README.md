@@ -2,6 +2,16 @@
 This port should be compatible with most Linux-based system with hardware SPI interface, including
 popular single-board computers such as the Raspberry Pi. It is compatible with our [Raspberrypi shield](https://github.com/tropicsquare/tropic01-raspberrypi-shield-hw) - follow the link to get more details about this shield itself, including schematics, design files and manufacturing data.
 
+## Clone
+
+This repository must be cloned recursively, because it contains libtropic as a submodule.
+
+```bash
+git clone https://github.com/tropicsquare/libtropic-linux.git
+cd libtropic-linux
+git submodule update --init --recursive
+```
+
 ## Dependencies and Requirements
 
 You need to have:
@@ -124,3 +134,8 @@ ctest -R test_name
 
 > [!TIP]
 > To see all output use `--verbose`.
+
+
+# FAQ
+
+If you encounter any issue, please have a look [here](./../FAQ.md) before filling an issue here or before reaching out to our [support](https://www.tropicsquare.com/contact-us) .

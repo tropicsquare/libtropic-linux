@@ -1,6 +1,16 @@
 # TS1302 Devkit's Project
 This project is compatible with Linux-based systems and our [USB devkit](https://github.com/tropicsquare/tropic01-stm32u5-usb-devkit-hw) - follow the link to get more details about this devkit itself, including schematics, design files and manufacturing data.
 
+## Clone
+
+This repository must be cloned recursively, because it contains libtropic as a submodule.
+
+```bash
+git clone https://github.com/tropicsquare/libtropic-linux.git
+cd libtropic-linux
+git submodule update --init --recursive
+```
+
 ## Dependencies And Requirements
 You need to have:
 * Access to USB UART interface (linux `dialout` group or silimar)
@@ -119,3 +129,9 @@ ctest -R test_name
 
 > [!TIP]
 > To see all output use `--verbose`.
+
+
+# FAQ
+
+If you encounter any issue, please have a look [here](./../FAQ.md) before filling an issue here or before reaching out to our [support](https://www.tropicsquare.com/contact-us) .
+
