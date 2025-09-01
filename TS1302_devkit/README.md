@@ -133,5 +133,5 @@ ctest -R test_name
 
 # FAQ
 
-If you encounter any issue, please have a look [here](./../FAQ.md) before filling an issue here or before reaching out to our [support](https://www.tropicsquare.com/contact-us) .
+If you encounter any issue, please have a look [here](./../FAQ.md) before filling an issue here or before reaching out to our [support](https://support.desk.tropicsquare.com/).
 
