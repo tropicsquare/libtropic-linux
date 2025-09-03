@@ -3,14 +3,12 @@
 We love contributions! To make contributing simple for both sides, please:
 
 - Open an issue and describe how you would like to contribute and discuss details with us.
-- Create a branch and do the changes:
+- Create a branch from develop and do the changes:
     - Make sure your commit messages follow our guidelines -- [see below](#commit-messages).
     - Make sure to follow specifics in our coding style -- [see below](#coding-style).
     - Make sure your code is properly formatted with `clang-format` version >16! Otherwise the PR check will fail and cannot be merged.
         - install clang-format
         - run `clang-format -i -- path_to_c_or_h_source_file`.
-    - Make sure the branch passes tests against model -- otherwise, again, the PR check will fail.
-        - Guide about testing against the model is in the [`tests/model_based_project/README.md`](tests/model_based_project/README.md).
 - Create pull request.
 
 ## Coding style
