@@ -26,6 +26,6 @@ Note that by default, keys for Production Silicon are used. If you need to use a
 rm -rf build
 mkdir build
 cd build
-cmake -DLT_BUILD_EXAMPLES=1 -DLT_SH0_PRIV_PATH=../libtropic/provisioning_data/sh0_priv_engineering_sample01.pem ..
+cmake -DLT_BUILD_EXAMPLES=1 -DLT_SH0_PRIV_PATH=../../libtropic/provisioning_data/sh0_priv_engineering_sample01.pem ..
 make
 ```
