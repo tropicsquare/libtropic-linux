@@ -45,7 +45,7 @@ For each example, a binary will be created in the build directory. Once all exam
 
 ## Display and Save Chip ID and Firmware Versions
 
-To display the current versions of internal firmware and details from the CHIP ID data field, execute the following example:
+To display the current versions of internal firmwares (SPECT and Application) and details from the CHIP ID data field, execute the following example:
 
 ```bash
 ./lt_ex_show_chip_id_and_fwver
