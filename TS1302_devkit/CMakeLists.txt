@@ -34,6 +34,12 @@ add_subdirectory(${PATH_LIBTROPIC} "libtropic")
 # Customize libtropic's compilation
 target_compile_options(tropic PRIVATE -ffunction-sections -fdata-sections)
 
+if(LT_ASAN)
+    message(STATUS "AddressSanitizer (ASan) is enabled for the entire project.")
+    add_compile_options(${LT_ASAN_COMPILE_FLAGS})
+    add_link_options(${LT_ASAN_LINK_FLAGS})
+endif()
+
 ###########################################################################
 #                                                                         #
 #   SOURCES                                                               #
@@ -43,7 +49,7 @@ target_compile_options(tropic PRIVATE -ffunction-sections -fdata-sections)
 
 set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c
-    ${PATH_LIBTROPIC}/hal/port/unix/lt_port_unix_usb_dongle.c
+    ${PATH_LIBTROPIC}/hal/port/unix/libtropic_port_unix_usb_dongle.c
 )
 
 include_directories(
