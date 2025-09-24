@@ -139,7 +139,7 @@ if(LT_BUILD_TESTS)
 
         # Add CTest entry.
         add_test(NAME ${test_name}
-                COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${exe_name}
+                COMMAND stdbuf -oL -eL ${CMAKE_CURRENT_BINARY_DIR}/${exe_name}
         )
     endforeach()
 endif()
