@@ -9,6 +9,7 @@ This repository must be cloned recursively because it contains `libtropic` as a 
 git clone https://github.com/tropicsquare/libtropic-linux.git
 cd libtropic-linux
 git submodule update --init --recursive
+cd TS1302_devkit/
 ```
 
 ## Dependencies and Requirements
