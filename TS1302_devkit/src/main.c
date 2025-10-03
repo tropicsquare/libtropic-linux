@@ -13,7 +13,7 @@
 #include "libtropic_examples.h"
 #include "libtropic_functional_tests.h"
 #include "libtropic_logging.h"
-#include "lt_port_unix_usb_dongle.h"
+#include "libtropic_port_unix_usb_dongle.h"
 
 int main(void)
 {

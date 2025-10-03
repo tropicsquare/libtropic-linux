@@ -9,6 +9,7 @@ This repository must be cloned recursively because it contains `libtropic` as a 
 git clone https://github.com/tropicsquare/libtropic-linux.git
 cd libtropic-linux
 git submodule update --init --recursive
+cd TS1302_devkit/
 ```
 
 ## Dependencies and Requirements
@@ -91,7 +92,7 @@ INFO    [  69] Deinitializing handle
 ```
 
 > [!IMPORTANT]
-> During the build, the SH0 keypair is automatically chosen from `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`. This SH0 key is present in the majority of distributed TROPIC01 chips. In certain cases (e.g., first engineering samples), it might be necessary to manually set it (in PEM or DER format) with the following CMake switch: `-DLT_SH0_PRIV_PATH=../libtropic/provisioning_data/sh0_priv_engineering_sample01.pem`.
+> During the build, the SH0 keypair is automatically chosen from `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`. This SH0 key is present in the majority of distributed TROPIC01 chips. In certain cases (e.g., first engineering samples), it might be necessary to manually set it (in PEM or DER format) with the following CMake switch: `-DLT_SH0_PRIV_PATH=../../libtropic/provisioning_data/sh0_priv_engineering_sample01.pem`.
 
 # Building Functional Tests
 
@@ -112,7 +113,7 @@ make
 For each test, a binary is created in the build directory, the same as when building examples.
 
 > [!IMPORTANT]
-> During the build, the SH0 keypair is automatically chosen from `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`. This SH0 key is present in the majority of distributed TROPIC01 chips. In certain cases (e.g., first engineering samples), it might be necessary to manually set it (in PEM or DER format) with the following CMake switch: `-DLT_SH0_PRIV_PATH=../libtropic/provisioning_data/sh0_priv_engineering_sample01.pem`.
+> During the build, the SH0 keypair is automatically chosen from `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`. This SH0 key is present in the majority of distributed TROPIC01 chips. In certain cases (e.g., first engineering samples), it might be necessary to manually set it (in PEM or DER format) with the following CMake switch: `-DLT_SH0_PRIV_PATH=../../libtropic/provisioning_data/sh0_priv_engineering_sample01.pem`.
 
 We recommend using CTest for handling functional tests.
 

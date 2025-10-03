@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.21.0)
 #   Paths and setup                                                       #
 #                                                                         #
 ###########################################################################
-set(PATH_LIBTROPIC "../libtropic/")
+set(PATH_LIBTROPIC ${CMAKE_CURRENT_SOURCE_DIR}/../libtropic/)
 
 
 ###########################################################################
@@ -26,7 +26,7 @@ project(libtropic_linux
 ###########################################################################
 
 # Use trezor crypto as a source of backend cryptography code
-set(LT_USE_TREZOR_CRYPTO ON)
+set(LT_CRYPTO "trezor_crypto")
 
 # Add path to libtropic's repository root folder
 add_subdirectory(${PATH_LIBTROPIC} "libtropic")
@@ -43,11 +43,10 @@ target_compile_options(tropic PRIVATE -ffunction-sections -fdata-sections)
 
 set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c
-    ${PATH_LIBTROPIC}/hal/port/unix/lt_port_unix_spi.c
+    ${PATH_LIBTROPIC}/hal/port/unix/libtropic_port_unix_spi.c
 )
 
 include_directories(
-    ${PATH_LIBTROPIC}/include
     ${PATH_LIBTROPIC}/hal/port/unix
 )
 
@@ -133,7 +132,7 @@ if(LT_BUILD_TESTS)
 
         # Add CTest entry.
         add_test(NAME ${test_name}
-                COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${exe_name}
+                COMMAND stdbuf -oL -eL ${CMAKE_CURRENT_BINARY_DIR}/${exe_name}
         )
     endforeach()
 endif()
