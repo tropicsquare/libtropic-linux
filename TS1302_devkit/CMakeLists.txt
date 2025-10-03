@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.21.0)
 #   Paths and setup                                                       #
 #                                                                         #
 ###########################################################################
-set(PATH_LIBTROPIC "../libtropic/")
+set(PATH_LIBTROPIC ${CMAKE_CURRENT_SOURCE_DIR}/../libtropic/)
 
 
 ###########################################################################
@@ -53,7 +53,6 @@ set(SOURCES
 )
 
 include_directories(
-    ${PATH_LIBTROPIC}/include
     ${PATH_LIBTROPIC}/hal/port/unix
 )
 
