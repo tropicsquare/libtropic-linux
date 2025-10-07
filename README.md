@@ -1,11 +1,11 @@
 # libtropic-linux
 
-This repository contains examples of the official SDK [`libtropic`](https://github.com/tropicsquare/libtropic)'s usage on Linux-based platforms.
+This repository contains examples of the official SDK [libtropic](https://github.com/tropicsquare/libtropic)'s usage on Linux-based platforms.
 
 Contributors, please follow the [guidelines](https://github.com/tropicsquare/libtropic-linux/blob/master/CONTRIBUTING.md).
 
  > [!IMPORTANT]
- > Example projects in separate folders represent different hardware connections for TROPIC01. They all wrap [`libtropic`](https://github.com/tropicsquare/libtropic) and are ready to be compiled and executed in a Linux environment.
+ > Example projects in separate folders represent different hardware connections for TROPIC01. They all wrap [libtropic](https://github.com/tropicsquare/libtropic) and are ready to be compiled and executed in a Linux environment.
 
 ### Supported Hardware
 

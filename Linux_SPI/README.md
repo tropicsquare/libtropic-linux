@@ -15,7 +15,7 @@ This port should be compatible with most Linux-based systems with a hardware SPI
 
 ## Clone
 
-This repository must be cloned recursively because it contains `libtropic` as a submodule.
+This repository must be cloned recursively because it contains [libtropic](https://github.com/tropicsquare/libtropic) as a submodule.
 
 ```bash
 git clone https://github.com/tropicsquare/libtropic-linux.git
@@ -50,7 +50,7 @@ Your setup should look like the following:
 
 ## 2. Build All Examples
 
-All available examples are taken from [libtropic](https://github.com/tropicsquare/libtropic/tree/master/examples).
+All examples are implemented in the [libtropic](https://github.com/tropicsquare/libtropic) repository. For more information about them, refer to the [Examples](https://tropicsquare.github.io/libtropic/latest/get_started/examples/) section in the libtropic documentation.
 
 Build all examples in one place with the following commands:
 
@@ -91,7 +91,7 @@ After successful execution, your chip will contain the latest firmware and will 
 ## 5. Build and Run Other Examples
 
 > [!WARNING]
-> Some examples cause irreversible changes to the chip. For more details, read the [libtropic examples readme](https://github.com/tropicsquare/libtropic/tree/master/examples).
+> Some examples cause irreversible changes to the chip. For more details, refer to the [Examples](https://tropicsquare.github.io/libtropic/latest/get_started/examples/) section in the libtropic documentation.
 
 For each built example, a binary is created in the build directory. For example, upon running the `lt_ex_hello_world` example as:
 
@@ -123,7 +123,7 @@ INFO    [  69] Deinitializing handle
 
 ## 6. Build and Run Functional Tests
 
-All available functional tests can be found [here](https://github.com/tropicsquare/libtropic/tree/master/tests/functional/).
+All functional tests are implemented in the [libtropic](https://github.com/tropicsquare/libtropic) repository. For more information about them, refer to the [Functional Tests](https://tropicsquare.github.io/libtropic/latest/for_contributors/functional_tests/) section in the libtropic documentation.
 
 > [!WARNING]
 > Some tests make irreversible changes to the chip, such as writing pairing keys. Those irreversible tests contain `_ire_` in their name. On the other hand, reversible tests are marked `_rev_` and are generally safe to run, as they only make temporary changes and always perform cleanup.
