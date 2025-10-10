@@ -132,7 +132,10 @@ if(LT_BUILD_TESTS)
 
         # Add CTest entry.
         add_test(NAME ${test_name}
-                COMMAND stdbuf -oL -eL ${CMAKE_CURRENT_BINARY_DIR}/${exe_name}
+                 COMMAND stdbuf -oL -eL ${CMAKE_CURRENT_BINARY_DIR}/${exe_name}
+        )
+        set_property(TEST ${test_name}
+                     PROPERTY FAIL_REGULAR_EXPRESSION "ERROR;WARNING"
         )
     endforeach()
 endif()
