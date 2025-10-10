@@ -8,6 +8,11 @@ cmake_minimum_required(VERSION 3.21.0)
 ###########################################################################
 set(PATH_LIBTROPIC ${CMAKE_CURRENT_SOURCE_DIR}/../libtropic/)
 
+# Optional prefix to tests registered to CTest. Useful when running same test against
+# different chips to differentiate them by their name in JUnit output.
+if (NOT DEFINED CTEST_PREFIX)
+    set(CTEST_PREFIX "")
+endif()
 
 ###########################################################################
 #                                                                         #
@@ -130,11 +135,17 @@ if(LT_BUILD_TESTS)
         target_compile_definitions(${exe_name} PRIVATE LT_BUILD_TESTS)
         target_compile_definitions(${exe_name} PRIVATE ${test_macro})
 
+        if(CTEST_PREFIX STREQUAL "")
+            set(TEST_NAME_WITH_PREFIX ${test_name})
+        else()
+            set(TEST_NAME_WITH_PREFIX ${CTEST_PREFIX}_${test_name})
+        endif()
+
         # Add CTest entry.
-        add_test(NAME ${test_name}
+        add_test(NAME ${TEST_NAME_WITH_PREFIX}
                  COMMAND stdbuf -oL -eL ${CMAKE_CURRENT_BINARY_DIR}/${exe_name}
         )
-        set_property(TEST ${test_name}
+        set_property(TEST ${TEST_NAME_WITH_PREFIX}
                      PROPERTY FAIL_REGULAR_EXPRESSION "ERROR;WARNING"
         )
     endforeach()
