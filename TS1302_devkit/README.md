@@ -92,7 +92,8 @@ INFO    [  69] Deinitializing handle
 ```
 
 > [!IMPORTANT]
-> During the build, the SH0 keypair is automatically chosen from `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`. This SH0 key is present in the majority of distributed TROPIC01 chips. In certain cases (e.g., first engineering samples), it might be necessary to manually set it (in PEM or DER format) with the following CMake switch: `-DLT_SH0_PRIV_PATH=../../libtropic/provisioning_data/sh0_priv_engineering_sample01.pem`.
+> You may encounter issues with examples that establish a Secure Session - refer to [Establishing Your First Secure Channel Session](https://tropicsquare.github.io/libtropic/latest/get_started/default_pairing_keys/#establishing-your-first-secure-channel-session) section in libtropic documentation for more information.
+
 
 # Building Functional Tests
 
@@ -112,7 +113,8 @@ make
 For each test, a binary will be created in the build directory (similarly as when building the examples).
 
 > [!IMPORTANT]
-> During the build, the SH0 keypair is automatically chosen from `libtropic/provisioning_data/<lab_batch_package_directory>/sh0_key_pair/`. This SH0 key is present in the majority of distributed TROPIC01 chips. In certain cases (e.g., first engineering samples), it might be necessary to manually set it (in PEM or DER format) with the following CMake switch: `-DLT_SH0_PRIV_PATH=../../libtropic/provisioning_data/sh0_priv_engineering_sample01.pem`.
+> You may encounter issues with tests that establish a Secure Session - refer to [Establishing Your First Secure Channel Session](https://tropicsquare.github.io/libtropic/latest/get_started/default_pairing_keys/#establishing-your-first-secure-channel-session) section in libtropic documentation for more information.
+
 
 We recommend using CTest for handling functional tests.
 
