@@ -39,8 +39,10 @@ Make sure to have these dependencies installed:
 
 * CMake
   * Raspbian/Debian/Ubuntu: `sudo apt install cmake`
+  * Fedora: `sudo dnf install cmake`
 * GCC
   * Raspbian/Debian/Ubuntu: `sudo apt install gcc`
+  * Fedora: `sudo dnf install gcc`
 
 ### System Setup
 Make sure that you have:
