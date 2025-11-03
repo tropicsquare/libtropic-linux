@@ -9,7 +9,7 @@ Contents:
     - [Clone the libtropic-linux Repository](#clone-the-libtropic-linux-repository)
     - [Build Examples](#build-examples)
     - [Run a Basic Example: Read CHIP ID and firmware versions](#run-a-basic-example-read-chip-id-and-firmware-versions)
-    - [Update Internal Firmwares](#update-internal-firmwares)
+    - [Update Internal Firmware](#update-internal-firmware)
   - [Running Advanced Examples](#running-advanced-examples)
   - [Building Functional Tests](#building-functional-tests)
   - [FAQ](#faq)
@@ -69,7 +69,7 @@ To run this example, execute:
 
 Save the output of this example for future reference.
 
-### Update Internal Firmwares
+### Update Internal Firmware
 After trying out communication and noting CHIP ID and firmware versions using the first example, upgrade TROPIC01's internal firmware, as newer versions fix bugs and ensure compatibility with the latest Libtropic SDK.
 
 > [!IMPORTANT]
