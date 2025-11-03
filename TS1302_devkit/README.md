@@ -73,7 +73,9 @@ Save the output of this example for future reference.
 After trying out communication and noting CHIP ID and firmware versions using the first example, upgrade TROPIC01's internal firmware, as newer versions fix bugs and ensure compatibility with the latest Libtropic SDK.
 
 > [!IMPORTANT]
-> Using outdated firmware is not recommended. Outdated firmware may not be compatible with the latest version of the Libtropic SDK.
+> - Using outdated firmware is not recommended. Outdated firmware may not be compatible with the latest version of the Libtropic SDK.
+> - Firmware updates should be performed only after you saved output from `lt_ex_show_chip_id_and_fwver`.
+> - Use a stable power source and avoid disconnecting the devkit or rebooting your computer during the update. Interrupting a firmware update can brick the device.
 
 To update both internal firmware to the latest versions, execute the following example:
 
