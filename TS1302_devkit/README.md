@@ -8,8 +8,8 @@ Contents:
     - [System Setup](#system-setup)
     - [Clone the libtropic-linux Repository](#clone-the-libtropic-linux-repository)
     - [Build Examples](#build-examples)
-    - [Run Basic Example: Read CHIP ID and firmware version](#run-basic-example-read-chip-id-and-firmware-version)
-    - [Update Internal Firmware](#update-internal-firmware)
+    - [Run a Basic Example: Read CHIP ID and firmware versions](#run-a-basic-example-read-chip-id-and-firmware-versions)
+    - [Update Internal Firmwares](#update-internal-firmwares)
   - [Running Advanced Examples](#running-advanced-examples)
   - [Building Functional Tests](#building-functional-tests)
   - [FAQ](#faq)
@@ -59,7 +59,7 @@ make
 
 For each example, a binary will be created in the build directory. Once all examples are built, **continue with the following section**.
 
-### Run Basic Example: Read CHIP ID and firmware version
+### Run a Basic Example: Read CHIP ID and firmware versions
 First, it is recommended to run the **lt_ex_show_chip_id_and_fwver** example. This example will print, among other information, the CHIP ID and TROPIC01's firmware versions.
 
 To run this example, execute:
@@ -69,7 +69,7 @@ To run this example, execute:
 
 Save the output of this example for future reference.
 
-### Update Internal Firmware
+### Update Internal Firmwares
 After trying out communication and noting CHIP ID and firmware versions using the first example, upgrade TROPIC01's internal firmware, as newer versions fix bugs and ensure compatibility with the latest Libtropic SDK.
 
 > [!IMPORTANT]
@@ -89,7 +89,7 @@ After successful execution, your chip will contain the latest firmware and will 
 > Make sure you already ran examples from previous sections.
 
 > [!CAUTION]
-> Some examples cause **irreversible changes** to the chip. Proceed only after reading the [Examples](https://tropicsquare.github.io/libtropic/latest/get_started/examples/) section in the Libtropic documentation and you understand the consequences. The documentation describes which examples are irreversible and what each example does.
+> Some examples cause **irreversible changes** to the chip. Proceed only after you read the [Examples](https://tropicsquare.github.io/libtropic/latest/get_started/examples/) section in the Libtropic documentation and you understand the consequences. The documentation describes which examples are irreversible and what each example does.
 
 Other examples can be run similarly to the ones you already tried. They are binaries, which you can simply execute.
 ```bash
