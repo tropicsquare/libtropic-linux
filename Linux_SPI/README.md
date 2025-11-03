@@ -3,17 +3,18 @@ This port should be compatible with most Linux-based systems with a hardware SPI
 
 Contents:
 
-- [First Steps](#first-steps)
-  - [Hardware Preparation](#hardware-preparation)
-  - [Install Dependencies](#install-dependencies)
-  - [System Setup](#system-setup)
-  - [Clone the libtropic-linux Repository](#clone-the-libtropic-linux-repository)
-  - [Build Examples](#build-examples)
-  - [Run Basic Example: Read CHIP ID and firmware version](#run-basic-example-read-chip-id-and-firmware-version)
-  - [Update Internal Firmware](#update-internal-firmware)
-- [Running Advanced Examples](#running-advanced-examples)
-- [Building Functional Tests](#building-functional-tests)
-- [FAQ](#faq)
+- [Linux SPI Project](#linux-spi-project)
+  - [First Steps](#first-steps)
+    - [Hardware Preparation](#hardware-preparation)
+    - [Install Dependencies](#install-dependencies)
+    - [System Setup](#system-setup)
+    - [Clone the libtropic-linux Repository](#clone-the-libtropic-linux-repository)
+    - [Build Examples](#build-examples)
+    - [Run Basic Example: Read CHIP ID and firmware version](#run-basic-example-read-chip-id-and-firmware-version)
+    - [Update Internal Firmware](#update-internal-firmware)
+  - [Running Advanced Examples](#running-advanced-examples)
+  - [Building Functional Tests](#building-functional-tests)
+  - [FAQ](#faq)
 
 ## First Steps
 > [!IMPORTANT]
