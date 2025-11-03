@@ -24,5 +24,5 @@ See the [LICENSE.md](LICENSE.md) file in the root of this repository or consult 
 
 ## FAQ
 
-If you encounter any issues, please check [here](./FAQ.md) before filing an issue or reaching out to our [support](https://support.desk.tropicsquare.com/).
+If you encounter any issues, please check the [FAQ](./FAQ.md) before filing an issue or reaching out to our [support](https://support.desk.tropicsquare.com/).
 
