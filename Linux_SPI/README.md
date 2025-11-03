@@ -51,7 +51,7 @@ Make sure that you have:
 
 ### Clone the libtropic-linux Repository
 
-This repository must be cloned recursively because it contains [libtropic](https://github.com/tropicsquare/libtropic) as a submodule.
+This repository must be cloned recursively because it contains [Libtropic](https://github.com/tropicsquare/libtropic) as a submodule.
 
 ```bash
 git clone https://github.com/tropicsquare/libtropic-linux.git
