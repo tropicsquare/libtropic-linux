@@ -86,7 +86,7 @@ After successful execution, your chip will contain the latest firmware and will 
 ## Running Advanced Examples
 
 > [!IMPORTANT]
-> Make sure you already ran examples from previous sections.
+> Make sure you have already run examples from previous sections.
 
 > [!CAUTION]
 > Some examples cause **irreversible changes** to the chip. Proceed only after you read the [Examples](https://tropicsquare.github.io/libtropic/latest/get_started/examples/) section in the Libtropic documentation and you understand the consequences. The documentation describes which examples are irreversible and what each example does.
