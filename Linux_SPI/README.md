@@ -1,9 +1,9 @@
-# Linux SPI Project
+# Linux SPI Tutorial
 This port should be compatible with most Linux-based systems with a hardware SPI interface, including popular single-board computers such as the Raspberry Pi. It is compatible with our [Raspberry Pi shield](https://github.com/tropicsquare/tropic01-raspberrypi-shield-hw). Follow the link to get more details about this shield, including schematics, design files, and manufacturing data.
 
 Contents:
 
-- [Linux SPI Project](#linux-spi-project)
+- [Linux SPI Tutorial](#linux-spi-tutorial)
   - [First Steps](#first-steps)
     - [Hardware Preparation](#hardware-preparation)
     - [Install Dependencies](#install-dependencies)
