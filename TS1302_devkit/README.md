@@ -28,7 +28,7 @@ Build all examples in one place with the following commands:
 ```bash
 mkdir build
 cd build
-cmake -DLT_BUILD_EXAMPLES=1 ..
+cmake -DLT_CAL=mbedtls_v4 -DLT_BUILD_EXAMPLES=1 ..
 make
 ```
 
@@ -106,7 +106,7 @@ Build all functional tests in one place with the following commands:
 ```bash
 mkdir build
 cd build
-cmake -DLT_BUILD_TESTS=1 ..
+cmake -DLT_CAL=mbedtls_v4 -DLT_BUILD_TESTS=1 ..
 make
 ```
 
