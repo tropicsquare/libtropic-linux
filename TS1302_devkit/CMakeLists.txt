@@ -59,7 +59,7 @@ endif()
 ###########################################################################
 
 # Developers who integrate Libtropic do not have to use these variables
-# It's used in model's main.c to switch crypto contexts without manual changes
+# It's used in main.c to switch crypto contexts without manual changes
 set(LT_USE_TREZOR_CRYPTO 0 CACHE INTERNAL "")
 set(LT_USE_MBEDTLS_V4 0 CACHE INTERNAL "")
 
@@ -69,7 +69,7 @@ if(LT_CAL STREQUAL "trezor_crypto")
     add_subdirectory("${PATH_LIBTROPIC}cal/trezor_crypto" "trezor_crypto_cal")
     
     # Developers who integrate Libtropic do not have to use this variable
-    # It's used in model's main.c to switch crypto contexts without manual changes
+    # It's used in main.c to switch crypto contexts without manual changes
     set(LT_USE_TREZOR_CRYPTO 1)
 
     add_subdirectory("${PATH_LIBTROPIC}/vendor/trezor_crypto/" "trezor_crypto")
@@ -80,7 +80,7 @@ elseif(LT_CAL STREQUAL "mbedtls_v4")
     add_subdirectory("${PATH_LIBTROPIC}cal/mbedtls_v4" "mbedtls_v4_cal")
 
     # Developers who integrate Libtropic do not have to use this variable
-    # It's used in model's main.c to switch crypto contexts without manual changes
+    # It's used in main.c to switch crypto contexts without manual changes
     set(LT_USE_MBEDTLS_V4 1)
 
     # Fetch MbedTLS v4.0.0
@@ -96,7 +96,7 @@ elseif(LT_CAL STREQUAL "mbedtls_v4")
     target_link_libraries(tropic PUBLIC mbedtls)
 else()
     get_property(lt_cal_choices CACHE LT_CAL PROPERTY STRINGS)
-    message(FATAL_ERROR "Incorrect CAL set to LT_CAL!\nSupported CALs by the model: ${lt_cal_choices}")
+    message(FATAL_ERROR "Incorrect CAL set to LT_CAL!\nSupported CALs: ${lt_cal_choices}")
 endif()
 
 target_sources(tropic PRIVATE ${LT_CAL_SRCS})
@@ -153,7 +153,7 @@ if (LT_BUILD_EXAMPLES)
         target_compile_definitions(${exe_name} PRIVATE ${example_macro})
 
         # Developers who integrate Libtropic do not have to use these variables
-        # It's used in model's main.c to switch crypto contexts without manual changes
+        # It's used in main.c to switch crypto contexts without manual changes
         target_compile_definitions(${exe_name} PRIVATE
             LT_USE_TREZOR_CRYPTO=${LT_USE_TREZOR_CRYPTO}
             LT_USE_MBEDTLS_V4=${LT_USE_MBEDTLS_V4}
@@ -206,7 +206,7 @@ if(LT_BUILD_TESTS)
         target_compile_definitions(${exe_name} PRIVATE ${test_macro})
 
         # Developers who integrate Libtropic do not have to use this variable
-        # It's used in model's main.c to switch crypto contexts without manual changes
+        # It's used in main.c to switch crypto contexts without manual changes
         target_compile_definitions(${exe_name} PRIVATE
             LT_USE_TREZOR_CRYPTO=${LT_USE_TREZOR_CRYPTO}
             LT_USE_MBEDTLS_V4=${LT_USE_MBEDTLS_V4}
