@@ -30,11 +30,10 @@ int main(void)
     // CRYPTOGRAPHIC FUNCTION PROVIDER INITIALIZATION             //
     //                                                            //
     // In production, this would typically be done only once,     //
-    // usually at the start of the application or before the first//
-    // use of cryptographic functions but no later than the       //
-    // first occurence of any Libtropic function                  //
+    // usually at the start of the application or before          //
+    // the first use of cryptographic functions but no later than //
+    // the first occurence of any Libtropic function              //
     ////////////////////////////////////////////////////////////////
-
 #if LT_USE_MBEDTLS_V4
     psa_status_t status = psa_crypto_init();
     if (status != PSA_SUCCESS) {
@@ -46,8 +45,8 @@ int main(void)
     ////////////////////////////////////////////////////////////////
     // HANDLE INITIALIZATION                                      //
     //                                                            //
-    // Libtropic handle is defined here (on stack) for simplicity.//
-    // In production, you put it on heap if needed.               //
+    // Libtropic handle is declared here (on stack) for           //
+    // simplicity. In production, you put it on heap if needed.   //
     ////////////////////////////////////////////////////////////////
     lt_handle_t __lt_handle__ = {0};
 
@@ -71,9 +70,9 @@ int main(void)
     ////////////////////////////////////////////////////////////////
     // CRYPTO ABSTRACTION LAYER CONTEXT                           //
     //                                                            //
-    // Context for the selected CAL implementation is chosen.     //
-    // based on the configuration macro. This is for only         //
-    // for convenient switching between different CALs for demo   //
+    // Context for the selected CAL implementation is chosen here //
+    // based on the configuration macro. This is only for         //
+    // convenient switching between different CALs for demo       //
     // purposes, in production applications you would typically   //
     // stick to a single CAL.                                     //
     ////////////////////////////////////////////////////////////////
@@ -96,7 +95,6 @@ int main(void)
 #endif
 
 // When examples are being built, special variable containing example return value is defined.
-// Otherwise, 0 is always returned (in case of building tests).
 #ifdef LT_BUILD_EXAMPLES
 #include "lt_ex_registry.c.inc"
     ret = __lt_ex_return_val__;
@@ -105,8 +103,8 @@ int main(void)
     ////////////////////////////////////////////////////////////////
     // CRYPTOGRAPHIC FUNCTION PROVIDER DEINITIALIZATION           //
     //                                                            //
-    // In production, this would typically be done only once,     //
-    // usually at the end of the application.                     //
+    // In production, this would be done only once, typically     //
+    // during termination of the application.                     //
     ////////////////////////////////////////////////////////////////
 #if LT_USE_MBEDTLS_V4
     mbedtls_psa_crypto_free();
