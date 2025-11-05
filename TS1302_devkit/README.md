@@ -1,5 +1,5 @@
 # TS1302 Devkit's Project
-This project is compatible with Linux-based systems and our [USB devkit](https://github.com/tropicsquare/tropic01-stm32u5-usb-devkit-hw). Follow the link to get more details about this devkit, including schematics, design files, and manufacturing data.
+This project is compatible with Linux-based systems (and possibly other POSIX-compatibles) and our [USB devkit](https://github.com/tropicsquare/tropic01-stm32u5-usb-devkit-hw). Follow the link to get more details about this devkit, including schematics, design files, and manufacturing data.
 
 ## Clone
 
