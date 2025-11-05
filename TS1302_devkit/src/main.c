@@ -32,7 +32,7 @@ int main(void)
     // In production, this would typically be done only once,     //
     // usually at the start of the application or before          //
     // the first use of cryptographic functions but no later than //
-    // the first occurence of any Libtropic function              //
+    // the first occurrence of any Libtropic function             //
     ////////////////////////////////////////////////////////////////
 #if LT_USE_MBEDTLS_V4
     psa_status_t status = psa_crypto_init();

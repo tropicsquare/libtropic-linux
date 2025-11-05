@@ -54,7 +54,7 @@ target_compile_options(tropic PRIVATE -ffunction-sections -fdata-sections)
 #   Note: The libtropic consumer does not have to do this in his          #
 #   application, we do this to quickly switch crypto backends.            #
 #   Refer to the libtropic documentation for more info about what should  #
-#   be done by the consumer this.                                         #
+#   be done by the consumer.                                              #
 #                                                                         #
 ###########################################################################
 
