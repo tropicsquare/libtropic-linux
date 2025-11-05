@@ -109,13 +109,13 @@ target_include_directories(tropic PUBLIC ${LT_CAL_INC_DIRS})
 #                                                                         #
 ###########################################################################
 
+# Add POSIX USB dongle HAL
+add_subdirectory("${PATH_LIBTROPIC}hal/posix/usb_dongle" "posix_usb_dongle_hal")
+target_sources(tropic PRIVATE ${LT_HAL_SRCS})
+target_include_directories(tropic PUBLIC ${LT_HAL_INC_DIRS})
+
 set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c
-    ${PATH_LIBTROPIC}/hal/port/unix/libtropic_port_unix_usb_dongle.c
-)
-
-include_directories(
-    ${PATH_LIBTROPIC}/hal/port/unix
 )
 
 ###########################################################################

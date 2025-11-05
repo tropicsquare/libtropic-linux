@@ -13,7 +13,7 @@
 #include "libtropic_examples.h"
 #include "libtropic_functional_tests.h"
 #include "libtropic_logging.h"
-#include "libtropic_port_unix_usb_dongle.h"
+#include "libtropic_port_posix_usb_dongle.h"
 
 #if LT_USE_TREZOR_CRYPTO
 #include "libtropic_trezor_crypto.h"
@@ -58,7 +58,7 @@ int main(void)
     // assigned by the OS (if you have multiple USB serial        //
     // devices).                                                  //
     ////////////////////////////////////////////////////////////////
-    lt_dev_unix_usb_dongle_t device = {0};
+    lt_dev_posix_usb_dongle_t device = {0};
     strcpy(device.dev_path, "/dev/ttyACM0");
     device.baud_rate = 115200;
     

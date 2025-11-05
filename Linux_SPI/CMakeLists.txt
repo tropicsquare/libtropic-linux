@@ -110,13 +110,13 @@ target_include_directories(tropic PUBLIC ${LT_CAL_INC_DIRS})
 #                                                                         #
 ###########################################################################
 
+# Add SPI Linux HAL
+add_subdirectory("${PATH_LIBTROPIC}hal/linux/spi" "linux_spi_hal")
+target_sources(tropic PRIVATE ${LT_HAL_SRCS})
+target_include_directories(tropic PUBLIC ${LT_HAL_INC_DIRS})
+
 set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c
-    ${PATH_LIBTROPIC}/hal/port/unix/libtropic_port_unix_spi.c
-)
-
-include_directories(
-    ${PATH_LIBTROPIC}/hal/port/unix
 )
 
 ###########################################################################

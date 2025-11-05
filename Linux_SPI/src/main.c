@@ -13,7 +13,7 @@
 #include "libtropic_examples.h"
 #include "libtropic_functional_tests.h"
 #include "libtropic_logging.h"
-#include "libtropic_port_unix_spi.h"
+#include "libtropic_port_linux_spi.h"
 
 #if LT_USE_TREZOR_CRYPTO
 #include "libtropic_trezor_crypto.h"
@@ -56,7 +56,7 @@ int main(void)
     // Modify this according to your environment. Default values  //
     // are compatible with RPi and our RPi shield.                //
     ////////////////////////////////////////////////////////////////
-    lt_dev_unix_spi_t device = {0};
+    lt_dev_linux_spi_t device = {0};
     strcpy(device.gpio_dev, "/dev/gpiochip0");
     strcpy(device.spi_dev, "/dev/spidev0.0");
     device.spi_speed = 5000000;   // 5 MHz (change if needed).
