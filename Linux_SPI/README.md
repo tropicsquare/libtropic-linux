@@ -49,12 +49,10 @@ Make sure that you have:
 
 * The SPI kernel module enabled.
     * On Raspberry Pi, you can use `raspi-config` to enable the module.
-* Permissions to access the SPI interface.
-    * On Raspberry Pi, you must be a member of the `spi` group.
+* Permissions to access the SPI and GPIO interface.
+    * On Raspberry Pi, you must be a member of the `spi` and `gpio` groups.
 
 ### Clone the libtropic-linux Repository
-
-This repository must be cloned recursively because it contains [Libtropic](https://github.com/tropicsquare/libtropic) as a submodule.
 
 ```bash
 git clone https://github.com/tropicsquare/libtropic-linux.git
@@ -89,7 +87,7 @@ To run this example, execute:
 Save the output of this example for future reference.
 
 ### Update Internal Firmware
-After trying out communication and noting CHIP ID and firmware versions using the first example, upgrade TROPIC01's internal firmware, as newer versions fix bugs and ensure compatibility with the latest Libtropic SDK.
+After trying out communication and writing down CHIP ID and firmware versions got from the first example, upgrade TROPIC01's internal firmware, as newer versions fix bugs and ensure compatibility with the latest Libtropic SDK.
 
 > [!IMPORTANT]
 > - Using outdated firmware is not recommended. Outdated firmware may not be compatible with the latest version of the Libtropic SDK.

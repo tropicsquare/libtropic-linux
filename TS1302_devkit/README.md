@@ -1,8 +1,8 @@
-# TS1302 Devkit's Project
+# TS1302 Devkit Tutorial
 This project is compatible with Linux-based systems (and possibly other POSIX-compatibles) and our [USB devkit](https://github.com/tropicsquare/tropic01-stm32u5-usb-devkit-hw). Follow the link to get more details about this devkit, including schematics, design files, and manufacturing data.
 
 Contents:
-- [TS1302 Devkit's Project](#ts1302-devkits-project)
+- [TS1302 Devkit Tutorial](#ts1302-devkit-tutorial)
   - [First Steps](#first-steps)
     - [Install Dependencies](#install-dependencies)
     - [System Setup](#system-setup)
@@ -33,9 +33,14 @@ Make sure to have these dependencies installed:
 ### System Setup
 Make sure you have access to a USB UART interface. Usually, your user account has to be a member of a certain group, usually the `dialout` group.
 
-### Clone the libtropic-linux Repository
+```bash
+# Check if you are in the dialout group
+groups
+# If not, add yourself to the dialout group
+sudo usermod -aG dialout "$USER"
+```
 
-This repository must be cloned recursively because it contains [Libtropic](https://github.com/tropicsquare/libtropic) as a submodule.
+### Clone the libtropic-linux Repository
 
 ```bash
 git clone https://github.com/tropicsquare/libtropic-linux.git
@@ -70,7 +75,7 @@ To run this example, execute:
 Save the output of this example for future reference.
 
 ### Update Internal Firmware
-After trying out communication and noting CHIP ID and firmware versions using the first example, upgrade TROPIC01's internal firmware, as newer versions fix bugs and ensure compatibility with the latest Libtropic SDK.
+After trying out communication and writing down CHIP ID and firmware versions got from the first example, upgrade TROPIC01's internal firmware, as newer versions fix bugs and ensure compatibility with the latest Libtropic SDK.
 
 > [!IMPORTANT]
 > - Using outdated firmware is not recommended. Outdated firmware may not be compatible with the latest version of the Libtropic SDK.
@@ -119,7 +124,7 @@ make
 For each test, a binary will be created in the build directory (similarly as when building the examples).
 
 > [!IMPORTANT]
-> You may encounter issues with tests that establish a Secure Session - refer to [Establishing Your First Secure Channel Session](https://tropicsquare.github.io/libtropic/latest/get_started/default_pairing_keys/#establishing-your-first-secure-channel-session) section in libtropic documentation for more information.
+> You may encounter issues with tests that establish a Secure Session — refer to [Establishing Your First Secure Channel Session](https://tropicsquare.github.io/libtropic/latest/get_started/default_pairing_keys/#establishing-your-first-secure-channel-session) section in libtropic documentation for more information.
 
 We use CTest to run functional tests.
 
