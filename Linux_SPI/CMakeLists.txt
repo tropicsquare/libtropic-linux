@@ -17,7 +17,8 @@ project(libtropic_linux
 #   Paths and setup                                                       #
 #                                                                         #
 ###########################################################################
-set(PATH_LIBTROPIC ${CMAKE_CURRENT_SOURCE_DIR}/../libtropic/)
+set(PATH_VENDOR ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/)
+set(PATH_LIBTROPIC ${PATH_VENDOR}libtropic/)
 
 # Optional prefix to tests registered to CTest. Useful when running same test against
 # different chips to differentiate them by their name in JUnit output.
@@ -83,15 +84,9 @@ elseif(LT_CAL STREQUAL "mbedtls_v4")
     # It's used in main.c to switch crypto contexts without manual changes
     set(LT_USE_MBEDTLS_V4 1)
 
-    # Fetch MbedTLS v4.0.0
-    FetchContent_Declare(
-        mbedtls
-        URL https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-4.0.0/mbedtls-4.0.0.tar.bz2
-        DOWNLOAD_EXTRACT_TIMESTAMP TRUE
-    )
     set(ENABLE_TESTING OFF CACHE BOOL "Disable mbedtls_v4 test building.")
     set(ENABLE_PROGRAMS OFF CACHE BOOL "Disable mbedtls_v4 examples building.")
-    FetchContent_MakeAvailable(mbedtls)
+    add_subdirectory("${PATH_VENDOR}mbedtls_v4/" "mbedtls_v4")
 
     target_link_libraries(tropic PUBLIC mbedtls)
 else()
