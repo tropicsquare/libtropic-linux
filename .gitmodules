@@ -1,5 +1,5 @@
 [submodule "libtropic"]
-	path = libtropic
+	path = vendor/libtropic
 	url = https://github.com/tropicsquare/libtropic.git
 [submodule "vendor/mbedtls_v4"]
 	path = vendor/mbedtls_v4

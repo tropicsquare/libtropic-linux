@@ -17,7 +17,7 @@ project(libtropic_linux
 #   Paths and setup                                                       #
 #                                                                         #
 ###########################################################################
-set(PATH_LIBTROPIC ${CMAKE_CURRENT_SOURCE_DIR}/../libtropic/)
+set(PATH_LIBTROPIC ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/libtropic/)
 
 # Optional prefix to tests registered to CTest. Useful when running same test against
 # different chips to differentiate them by their name in JUnit output.

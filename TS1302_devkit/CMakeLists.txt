@@ -17,7 +17,7 @@ project(libtropic_linux
 #   Paths and setup                                                       #
 #                                                                         #
 ###########################################################################
-set(PATH_LIBTROPIC ${CMAKE_CURRENT_SOURCE_DIR}/../libtropic/)
+set(PATH_LIBTROPIC ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/libtropic/)
 
 ###########################################################################
 #                                                                         #
