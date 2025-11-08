@@ -139,7 +139,7 @@ if(LT_BUILD_TESTS)
     FetchContent_Declare(
         ed25519
         GIT_REPOSITORY https://github.com/orlp/ed25519.git
-        GIT_TAG        master
+        GIT_TAG        b1f19fab4aebe607805620d25a5e42566ce46a0e
     )
     FetchContent_MakeAvailable(ed25519)
 
