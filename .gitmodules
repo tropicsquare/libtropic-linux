@@ -4,3 +4,9 @@
 [submodule "vendor/mbedtls_v4"]
 	path = vendor/mbedtls_v4
 	url = https://github.com/Mbed-TLS/mbedtls.git
+[submodule "vendor/micro-ecc"]
+	path = vendor/micro-ecc
+	url = https://github.com/kmackay/micro-ecc.git
+[submodule "vendor/ed25519"]
+	path = vendor/ed25519
+	url = https://github.com/orlp/ed25519.git
