@@ -134,7 +134,7 @@ if(LT_BUILD_TESTS)
     target_include_directories(tropic PRIVATE ${micro_ecc_SOURCE_DIR})
     target_link_libraries(tropic PRIVATE micro_ecc_lib)
 
-    # Download ed25519 repository used for ECDSA signature verification
+    # Download ed25519 repository used for EdDSA signature verification
     FetchContent_Declare(
         ed25519
         GIT_REPOSITORY https://github.com/orlp/ed25519.git
