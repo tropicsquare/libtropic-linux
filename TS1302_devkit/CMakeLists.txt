@@ -115,51 +115,35 @@ set(SOURCES
 
 # Special dependencies for tests, such as signature verification libraries
 if(LT_BUILD_TESTS)
-    # Download micro-ecc repository used for ECDSA signature verification
-    FetchContent_Declare(
-        micro_ecc
-        GIT_REPOSITORY https://github.com/kmackay/micro-ecc.git
-        GIT_TAG        v1.1
-    )
-    FetchContent_MakeAvailable(micro_ecc)
-
+    # micro-ecc library is used for ECDSA signature verification
     add_library(micro_ecc_lib STATIC
-        ${micro_ecc_SOURCE_DIR}/uECC.c
+        ${PATH_VENDOR}/micro-ecc/uECC.c
     )
 
-    target_include_directories(micro_ecc_lib PRIVATE
-        ${micro_ecc_SOURCE_DIR}
+    target_include_directories(micro_ecc_lib PUBLIC # PUBLIC as it is also used in tropic target
+        ${PATH_VENDOR}/micro-ecc
     )
 
-    target_include_directories(tropic PRIVATE ${micro_ecc_SOURCE_DIR})
     target_link_libraries(tropic PRIVATE micro_ecc_lib)
 
-    # Download ed25519 repository used for EdDSA signature verification
-    FetchContent_Declare(
-        ed25519
-        GIT_REPOSITORY https://github.com/orlp/ed25519.git
-        GIT_TAG        b1f19fab4aebe607805620d25a5e42566ce46a0e
-    )
-    FetchContent_MakeAvailable(ed25519)
-
+    # ed25519 library is used for EdDSA signature verification
     add_library(ed25519_lib STATIC
-        ${ed25519_SOURCE_DIR}/src/verify.c
-        ${ed25519_SOURCE_DIR}/src/add_scalar.c
-        ${ed25519_SOURCE_DIR}/src/fe.c
-        ${ed25519_SOURCE_DIR}/src/ge.c
-        ${ed25519_SOURCE_DIR}/src/key_exchange.c
-        ${ed25519_SOURCE_DIR}/src/keypair.c
-        ${ed25519_SOURCE_DIR}/src/sc.c
-        ${ed25519_SOURCE_DIR}/src/seed.c
-        ${ed25519_SOURCE_DIR}/src/sha512.c
-        ${ed25519_SOURCE_DIR}/src/sign.c
+        ${PATH_VENDOR}/ed25519/src/verify.c
+        ${PATH_VENDOR}/ed25519/src/add_scalar.c
+        ${PATH_VENDOR}/ed25519/src/fe.c
+        ${PATH_VENDOR}/ed25519/src/ge.c
+        ${PATH_VENDOR}/ed25519/src/key_exchange.c
+        ${PATH_VENDOR}/ed25519/src/keypair.c
+        ${PATH_VENDOR}/ed25519/src/sc.c
+        ${PATH_VENDOR}/ed25519/src/seed.c
+        ${PATH_VENDOR}/ed25519/src/sha512.c
+        ${PATH_VENDOR}/ed25519/src/sign.c
     )
 
-    target_include_directories(ed25519_lib PRIVATE
-        ${ed25519_SOURCE_DIR}/src/
+    target_include_directories(ed25519_lib PUBLIC # PUBLIC as it is also used in tropic target
+        ${PATH_VENDOR}/ed25519/src/
     )
 
-    target_include_directories(tropic PRIVATE ${ed25519_SOURCE_DIR}/src)
     target_link_libraries(tropic PRIVATE ed25519_lib)
 endif()
 
