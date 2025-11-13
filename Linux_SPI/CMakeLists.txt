@@ -20,21 +20,21 @@ project(libtropic_linux
 set(PATH_VENDOR ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/)
 set(PATH_LIBTROPIC ${PATH_VENDOR}libtropic/)
 
-# Optional prefix to tests registered to CTest. Useful when running same test against
-# different chips to differentiate them by their name in JUnit output.
-if (NOT DEFINED CTEST_PREFIX)
-    set(CTEST_PREFIX "")
-endif()
-
 ###########################################################################
 #                                                                         #
-#   Options                                                               #
+#   Options and user configuration                                        #
 #                                                                         #
 ###########################################################################
 
 # Select CAL
 set(LT_CAL "" CACHE STRING "Set a CAL (Crypto Abstraction Layer)")
 set_property(CACHE LT_CAL PROPERTY STRINGS "trezor_crypto" "mbedtls_v4")
+
+# Optional prefix to tests registered to CTest. Useful when running same test against
+# different chips to differentiate them by their name in JUnit output.
+if (NOT DEFINED CTEST_PREFIX)
+    set(CTEST_PREFIX "")
+endif()
 
 ###########################################################################
 #                                                                         #
