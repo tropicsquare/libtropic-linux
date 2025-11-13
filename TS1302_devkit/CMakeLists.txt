@@ -22,13 +22,19 @@ set(PATH_LIBTROPIC ${PATH_VENDOR}libtropic/)
 
 ###########################################################################
 #                                                                         #
-#   Options                                                               #
+#   Options and user configuration                                        #
 #                                                                         #
 ###########################################################################
 
 # Select CAL
 set(LT_CAL "" CACHE STRING "Set a CAL (Crypto Abstraction Layer)")
 set_property(CACHE LT_CAL PROPERTY STRINGS "trezor_crypto" "mbedtls_v4")
+
+# Optional prefix to tests registered to CTest. Useful when running same test against
+# different chips to differentiate them by their name in JUnit output.
+if (NOT DEFINED CTEST_PREFIX)
+    set(CTEST_PREFIX "")
+endif()
 
 ###########################################################################
 #                                                                         #
@@ -241,8 +247,14 @@ if(LT_BUILD_TESTS)
             LT_USE_MBEDTLS_V4=${LT_USE_MBEDTLS_V4}
         )
 
+        if(CTEST_PREFIX STREQUAL "")
+            set(TEST_NAME_WITH_PREFIX ${test_name})
+        else()
+            set(TEST_NAME_WITH_PREFIX ${CTEST_PREFIX}_${test_name})
+        endif()
+
         # Add CTest entry.
-        add_test(NAME ${test_name}
+        add_test(NAME ${TEST_NAME_WITH_PREFIX}
                 COMMAND stdbuf -oL -eL ${CMAKE_CURRENT_BINARY_DIR}/${exe_name}
         )
     endforeach()
