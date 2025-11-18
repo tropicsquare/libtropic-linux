@@ -168,5 +168,5 @@ ctest -R _rev_
 
 If you encounter any issues, please check [here](./../FAQ.md) before filing an issue or reaching out to our [support](https://support.desk.tropicsquare.com/).
 
-> [!NOTE]
-> Running tests is not officially supported. We do not provide any support for running tests.
+> [!IMPORTANT]  
+> We do not provide any support for running the tests.
