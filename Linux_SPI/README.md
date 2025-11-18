@@ -82,6 +82,9 @@ cmake -DLT_CAL=mbedtls_v4 -DLT_BUILD_EXAMPLES=1 ..
 make
 ```
 
+> [!NOTE]
+> `-DLT_CAL` is used to select Cryptography Function Provider. We provide multiple, refer to the [Libtropic SDK documentation](https://tropicsquare.github.io/libtropic/latest/).
+
 For each example, a binary will be created in the build directory. Once all examples are built, **continue with the following section**.
 
 ### Run a Basic Example: Read CHIP ID and firmware versions
@@ -144,7 +147,7 @@ make
 For each test, a binary will be created in the build directory (similarly as when building the examples).
 
 > [!IMPORTANT]
-> You may encounter issues with tests that establish a Secure Session - refer to [Establishing Your First Secure Channel Session](https://tropicsquare.github.io/libtropic/latest/get_started/default_pairing_keys/#establishing-your-first-secure-channel-session) section in libtropic documentation for more information.
+> You may encounter issues with tests that establish a Secure Session — refer to [Establishing Your First Secure Channel Session](https://tropicsquare.github.io/libtropic/latest/get_started/default_pairing_keys/#establishing-your-first-secure-channel-session) section in libtropic documentation for more information.
 
 We use CTest to run functional tests.
 

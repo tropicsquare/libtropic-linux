@@ -62,6 +62,9 @@ cmake -DLT_CAL=mbedtls_v4 -DLT_BUILD_EXAMPLES=1 ..
 make
 ```
 
+> [!NOTE]
+> `-DLT_CAL` is used to select Cryptography Function Provider. We provide multiple, refer to the [Libtropic SDK documentation](https://tropicsquare.github.io/libtropic/latest/).
+
 For each example, a binary will be created in the build directory. Once all examples are built, **continue with the following section**.
 
 ### Run a Basic Example: Read CHIP ID and firmware versions
