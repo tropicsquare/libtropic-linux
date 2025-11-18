@@ -52,6 +52,14 @@ Make sure that you have:
 * Permissions to access the SPI and GPIO interface.
     * On Raspberry Pi, you must be a member of the `spi` and `gpio` groups.
 
+```bash
+# Check if you are in the spi and the gpio group
+groups
+# Add yourself to each group you are not in
+sudo usermod -aG spi "$USER"
+sudo usermod -aG gpio "$USER"
+```
+
 ### Clone the libtropic-linux Repository
 
 ```bash
