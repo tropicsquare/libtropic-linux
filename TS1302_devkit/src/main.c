@@ -61,10 +61,6 @@ int main(void)
     lt_dev_posix_usb_dongle_t device = {0};
     strcpy(device.dev_path, "/dev/ttyACM0");
     device.baud_rate = 115200;
-    
-    device.rng_seed = time(NULL);
-    LT_LOG_INFO("RNG initialized with seed=%u.", device.rng_seed);
-    
     __lt_handle__.l2.device = &device;
 
     ////////////////////////////////////////////////////////////////
@@ -83,7 +79,7 @@ int main(void)
 #endif
         crypto_ctx;
     __lt_handle__.l3.crypto_ctx = &crypto_ctx;
-    
+
     ////////////////////////////////////////////////////////////////
     // EXAMPLE OR TEST CODE                                       //
     //                                                            //
@@ -111,5 +107,4 @@ int main(void)
 #endif
 
     return ret;
-
 }
