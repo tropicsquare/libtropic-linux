@@ -59,8 +59,12 @@ int main(void)
     lt_dev_linux_spi_t device = {0};
     strcpy(device.gpio_dev, "/dev/gpiochip0");
     strcpy(device.spi_dev, "/dev/spidev0.0");
-    device.spi_speed = 5000000;  // 5 MHz (change if needed).
-    device.gpio_cs_num = 25;     // GPIO 25 as on RPi shield.
+    device.spi_speed = 5000000;   // 5 MHz (change if needed).
+    device.gpio_cs_num = 25;      // GPIO 25 as on RPi shield.
+    
+    device.rng_seed = time(NULL);
+    LT_LOG_INFO("RNG initialized with seed=%u.", device.rng_seed);
+    
     __lt_handle__.l2.device = &device;
 
     ////////////////////////////////////////////////////////////////
@@ -79,7 +83,7 @@ int main(void)
 #endif
         crypto_ctx;
     __lt_handle__.l3.crypto_ctx = &crypto_ctx;
-
+    
     ////////////////////////////////////////////////////////////////
     // EXAMPLE OR TEST CODE                                       //
     //                                                            //
@@ -107,4 +111,5 @@ int main(void)
 #endif
 
     return ret;
+
 }
