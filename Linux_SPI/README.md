@@ -83,7 +83,7 @@ make
 ```
 
 > [!NOTE]
-> `-DLT_CAL` is used to select Cryptography Function Provider. We provide multiple, refer to the [Libtropic SDK documentation](https://tropicsquare.github.io/libtropic/latest/).
+> `-DLT_CAL` is used to select Cryptography Function Provider. We provide multiple — refer to the [Supported Cryptographic Functionality Providers](https://tropicsquare.github.io/libtropic/latest/other/supported_cfps/) section in the Libtropic SDK documentation.
 
 For each example, a binary will be created in the build directory. Once all examples are built, **continue with the following section**.
 
