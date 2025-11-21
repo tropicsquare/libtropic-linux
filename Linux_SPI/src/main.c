@@ -61,6 +61,9 @@ int main(void)
     strcpy(device.spi_dev, "/dev/spidev0.0");
     device.spi_speed = 5000000;  // 5 MHz (change if needed).
     device.gpio_cs_num = 25;     // GPIO 25 as on RPi shield.
+#if LT_USE_INT_PIN
+    device.gpio_int_num = 5;  // GPIO 5 as on RPi shield.
+#endif
     __lt_handle__.l2.device = &device;
 
     ////////////////////////////////////////////////////////////////
