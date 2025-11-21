@@ -1,9 +1,46 @@
-# TS1302 Devkit's Project
+# TS1302 Devkit Tutorial
 This project is compatible with Linux-based systems (and possibly other POSIX-compatibles) and our [USB devkit](https://github.com/tropicsquare/tropic01-stm32u5-usb-devkit-hw). Follow the link to get more details about this devkit, including schematics, design files, and manufacturing data.
 
-## Clone
+Contents:
+- [TS1302 Devkit Tutorial](#ts1302-devkit-tutorial)
+  - [First Steps](#first-steps)
+    - [Install Dependencies](#install-dependencies)
+    - [System Setup](#system-setup)
+    - [Clone the libtropic-linux Repository](#clone-the-libtropic-linux-repository)
+    - [Build Examples](#build-examples)
+    - [Run a Basic Example: Read CHIP ID and firmware versions](#run-a-basic-example-read-chip-id-and-firmware-versions)
+    - [Update Internal Firmware](#update-internal-firmware)
+  - [Running Advanced Examples](#running-advanced-examples)
+  - [Building Functional Tests](#building-functional-tests)
+  - [FAQ](#faq)
 
-This repository must be cloned recursively because it contains `libtropic` as a submodule.
+## First Steps
+> [!IMPORTANT]
+> **Do not skip these steps**. You will gather basic information about the chip (which you will need for any eventual support) and update your chip's firmware, which will guarantee compatibility with the latest Libtropic API.
+
+Before proceeding, familiarize yourself with the [Libtropic SDK documentation](https://tropicsquare.github.io/libtropic/latest/).
+
+### Install Dependencies
+Make sure to have these dependencies installed:
+
+* CMake
+  * Raspbian/Debian/Ubuntu: `sudo apt install cmake`
+  * Fedora: `sudo dnf install cmake`
+* GCC
+  * Raspbian/Debian/Ubuntu: `sudo apt install gcc`
+  * Fedora: `sudo dnf install gcc`
+
+### System Setup
+Make sure you have access to a USB UART interface. Usually, your user account has to be a member of a certain group, usually the `dialout` group.
+
+```bash
+# Check if you are in the dialout group
+groups
+# If not, add yourself to the dialout group
+sudo usermod -aG dialout "$USER"
+```
+
+### Clone the libtropic-linux Repository
 
 ```bash
 git clone https://github.com/tropicsquare/libtropic-linux.git
@@ -12,16 +49,9 @@ git submodule update --init --recursive
 cd TS1302_devkit/
 ```
 
-## Dependencies and Requirements
+### Build Examples
 
-You need to have:
-* Access to a USB UART interface (Linux `dialout` group or similar)
-* `cmake` (On Debian-based systems, it can be installed with `sudo apt install cmake`)
-* `gcc` (On Debian-based systems, it can be installed with `sudo apt install gcc`)
-
-# Build All Examples
-
-All examples are implemented in the [libtropic](https://github.com/tropicsquare/libtropic) repository. For more information about them, refer to the [Examples](https://tropicsquare.github.io/libtropic/latest/get_started/examples/) section in the libtropic documentation.
+All examples are implemented in the [Libtropic](https://github.com/tropicsquare/libtropic) repository. For more information about them, refer to the [Examples](https://tropicsquare.github.io/libtropic/latest/get_started/examples/) section in the Libtropic SDK documentation.
 
 Build all examples in one place with the following commands:
 
@@ -32,26 +62,28 @@ cmake -DLT_CAL=mbedtls_v4 -DLT_BUILD_EXAMPLES=1 ..
 make
 ```
 
-For each example, a binary will be created in the build directory. Once all examples are built, continue with the following chapter.
+> [!NOTE]
+> `-DLT_CAL` is used to select Cryptography Function Provider. We provide multiple — refer to the [Supported Cryptographic Functionality Providers](https://tropicsquare.github.io/libtropic/latest/other/supported_cfps/) section in the Libtropic SDK documentation.  
 
-# Recommended First Steps
+For each example, a binary will be created in the build directory. Once all examples are built, **continue with the following section**.
 
-> [!IMPORTANT]
-> Before you start with various examples, we strongly recommend doing two things first:
-> * Read the CHIP ID and TROPIC01's firmware versions and **save the printed output for future reference**.
-> * Update both of TROPIC01's internal firmware to the latest version.
+### Run a Basic Example: Read CHIP ID and firmware versions
+First, it is recommended to run the **lt_ex_show_chip_id_and_fwver** example. This example will print, among other information, the CHIP ID and TROPIC01's firmware versions.
 
-## Display and Save Chip ID and Firmware Versions
-
-To display the current versions of internal firmware and details from the CHIP ID data field, execute the following example:
-
+To run this example, execute:
 ```bash
 ./lt_ex_show_chip_id_and_fwver
 ```
 
-We recommend saving the printed output for future reference.
+Save the output of this example for future reference.
 
-## Update Internal Firmware
+### Update Internal Firmware
+After trying out communication and writing down CHIP ID and firmware versions got from the first example, upgrade TROPIC01's internal firmware, as newer versions fix bugs and ensure compatibility with the latest Libtropic SDK.
+
+> [!IMPORTANT]
+> - Using outdated firmware is not recommended. Outdated firmware may not be compatible with the latest version of the Libtropic SDK.
+> - Firmware updates should be performed only after you saved output from `lt_ex_show_chip_id_and_fwver`.
+> - Use a stable power source and avoid disconnecting the devkit or rebooting your computer during the update. Interrupting a firmware update can brick the device.
 
 To update both internal firmware to the latest versions, execute the following example:
 
@@ -59,48 +91,30 @@ To update both internal firmware to the latest versions, execute the following e
 ./lt_ex_fw_update
 ```
 
-After successful execution, your chip will contain the latest firmware and will be compatible with the `libtropic` API.
+After successful execution, your chip will contain the latest firmware and will be compatible with the current Libtropic API.
 
-# Building and Running Other Examples
+## Running Advanced Examples
 
-> [!WARNING]
-> Some examples cause irreversible changes to the chip. For more details, refer to the [Examples](https://tropicsquare.github.io/libtropic/latest/get_started/examples/) section in the libtropic documentation.
+> [!IMPORTANT]
+> Make sure you have already run examples from previous sections.
 
-For each built example, a binary is created in the build directory. For example, upon running the `lt_ex_hello_world` example as:
+> [!CAUTION]
+> Some examples cause **irreversible changes** to the chip. Proceed only after you read the [Examples](https://tropicsquare.github.io/libtropic/latest/get_started/examples/) section in the Libtropic documentation and you understand the consequences. The documentation describes which examples are irreversible and what each example does.
 
+Other examples can be run similarly to the ones you already tried. They are binaries, which you can simply execute.
 ```bash
-./lt_ex_hello_world
-```
-
-You should see output similar to this:
-
-```bash
-INFO    [  21] ======================================
-INFO    [  22] ==== TROPIC01 Hello World Example ====
-INFO    [  23] ======================================
-INFO    [  27] Initializing handle
-INFO    [  35] Starting Secure Session with key 0
-INFO    [  43] 	-------------------------------------------------
-INFO    [  46] Sending Ping command with message:
-INFO    [  47] 	"This is Hello World message from TROPIC01!!"
-INFO    [  55] 	-------------------------------------------------
-INFO    [  57] Message received from TROPIC01:
-INFO    [  58] 	"This is Hello World message from TROPIC01!!"
-INFO    [  59] 	-------------------------------------------------
-INFO    [  61] Aborting Secure Session
-INFO    [  69] Deinitializing handle
+./example_binary_name
 ```
 
 > [!IMPORTANT]
-> You may encounter issues with examples that establish a Secure Session - refer to [Establishing Your First Secure Channel Session](https://tropicsquare.github.io/libtropic/latest/get_started/default_pairing_keys/#establishing-your-first-secure-channel-session) section in libtropic documentation for more information.
+> You may encounter issues with examples that establish a Secure Session — refer to [Establishing Your First Secure Channel Session](https://tropicsquare.github.io/libtropic/latest/get_started/default_pairing_keys/#establishing-your-first-secure-channel-session) in the Libtropic documentation for more information.
 
+## Building Functional Tests
 
-# Building Functional Tests
+> [!CAUTION]
+> **DANGER!** Functional tests are for internal use only and are provided only for reference. Some tests can **destroy** your chip. **Do not run the tests** unless you are absolutely sure what you are doing. If you damage your chip with the tests, we are unable to provide any support.
 
-All functional tests are implemented in the [libtropic](https://github.com/tropicsquare/libtropic) repository. For more information about them, refer to the [Functional Tests](https://tropicsquare.github.io/libtropic/latest/for_contributors/functional_tests/) section in the libtropic documentation.
-
-> [!WARNING]
-> Some tests make irreversible changes to the chip, such as writing pairing keys. Those irreversible tests contain `_ire_` in their name. On the other hand, reversible tests are marked `_rev_` and are generally safe to run, as they only make temporary changes and always perform cleanup.
+All functional tests are implemented in the [Libtropic](https://github.com/tropicsquare/libtropic) repository. For more information about them, refer to the [Functional Tests](https://tropicsquare.github.io/libtropic/latest/for_contributors/functional_tests/) section in the Libtropic documentation.
 
 Build all functional tests in one place with the following commands:
 ```bash
@@ -113,32 +127,26 @@ make
 For each test, a binary will be created in the build directory (similarly as when building the examples).
 
 > [!IMPORTANT]
-> You may encounter issues with tests that establish a Secure Session - refer to [Establishing Your First Secure Channel Session](https://tropicsquare.github.io/libtropic/latest/get_started/default_pairing_keys/#establishing-your-first-secure-channel-session) section in libtropic documentation for more information.
+> You may encounter issues with tests that establish a Secure Session — refer to [Establishing Your First Secure Channel Session](https://tropicsquare.github.io/libtropic/latest/get_started/default_pairing_keys/#establishing-your-first-secure-channel-session) section in libtropic documentation for more information.
 
+We use CTest to run functional tests.
 
-We recommend using CTest for handling functional tests.
-
-To show available tests:
-
+To list available tests:
 ```bash
 ctest -N
 ```
 
-To launch all tests (some of them are irreversible):
-
+To launch reversible tests only:
 ```bash
-ctest
-```
-
-To launch a selected test:
-
-```bash
-ctest -R test_name
+ctest -R _rev_
 ```
 
 > [!TIP]
-> To see all output, use `--verbose`.
+> To see all output, use `--verbose` or `-V`.
 
-# FAQ
+## FAQ
 
-If you encounter any issues, please have a look [here](./../FAQ.md) before filing an issue or reaching out to our [support](https://support.desk.tropicsquare.com/).
+If you encounter any issues, please check [here](./../FAQ.md) before filing an issue or reaching out to our [support](https://support.desk.tropicsquare.com/).
+
+> [!IMPORTANT]  
+> We do not provide any support for running the tests.
