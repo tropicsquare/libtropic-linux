@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.21.0)
 
-include(FetchContent)
-
 ###########################################################################
 #                                                                         #
 #   Define project's name                                                 #
@@ -20,6 +18,9 @@ project(libtropic_linux
 set(PATH_VENDOR ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/)
 set(PATH_LIBTROPIC ${PATH_VENDOR}libtropic/)
 
+include(${PATH_LIBTROPIC}cmake/strict_compile_flags.cmake)
+include(${PATH_LIBTROPIC}cmake/static_asan_flags.cmake)
+
 ###########################################################################
 #                                                                         #
 #   Options and user configuration                                        #
@@ -35,6 +36,9 @@ set_property(CACHE LT_CAL PROPERTY STRINGS "trezor_crypto" "mbedtls_v4")
 if (NOT DEFINED CTEST_PREFIX)
     set(CTEST_PREFIX "")
 endif()
+
+option(LT_ASAN "Enable static AddressSanitizer (ASan)" OFF)
+option(LT_STRICT_COMPILATION "Enable strict compilation flags" ON)
 
 ###########################################################################
 #                                                                         #
@@ -52,6 +56,12 @@ if(LT_ASAN)
     message(STATUS "AddressSanitizer (ASan) is enabled for the entire project.")
     add_compile_options(${LT_ASAN_COMPILE_FLAGS})
     add_link_options(${LT_ASAN_LINK_FLAGS})
+endif()
+
+if(LT_STRICT_COMPILATION)
+    message(STATUS "Enabling strict compilation flags.")
+    # Enable strict compile flags for Libtropic library
+    target_link_libraries(tropic PRIVATE libtropic::strict_comp_flags)
 endif()
 
 ###########################################################################
@@ -119,6 +129,12 @@ set(SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c
 )
 
+# Enable strict compile flags for main.c and Libtropic HAL sources
+if(LT_STRICT_COMPILATION)
+    set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/main.c ${LT_HAL_SRCS} PROPERTIES COMPILE_OPTIONS "${LT_STRICT_COMPILATION_FLAGS}")   
+endif()
+
+
 # Special dependencies for tests, such as signature verification libraries
 if(LT_BUILD_TESTS)
     # micro-ecc library is used for ECDSA signature verification
@@ -177,12 +193,6 @@ if (LT_BUILD_EXAMPLES)
         add_executable(${exe_name} ${SOURCES})
         target_link_libraries(${exe_name} PRIVATE tropic)
 
-        # Apply the strict compilation flags
-        # (they are already applied for libtropic from the libtropic's CMakeLists.txt)
-        if(LT_STRICT_COMP_FLAGS)
-            target_link_libraries(${exe_name} PRIVATE libtropic::strict_comp_flags)
-        endif()
-
         # Enable example registry using LT_BUILD_EXAMPLES and choose correct example for the binary.
         target_compile_definitions(${exe_name} PRIVATE LT_BUILD_EXAMPLES)
         target_compile_definitions(${exe_name} PRIVATE ${example_macro})
@@ -229,12 +239,6 @@ if(LT_BUILD_TESTS)
         # Define executable (separate for each test) and link dependencies.
         add_executable(${exe_name} ${SOURCES})
         target_link_libraries(${exe_name} PRIVATE tropic)
-
-        # Apply the strict compilation flags
-        # (they are already applied for libtropic from the libtropic's CMakeLists.txt)
-        if(LT_STRICT_COMP_FLAGS)
-            target_link_libraries(${exe_name} PRIVATE libtropic::strict_comp_flags)
-        endif()
 
         # Enable test registry using LT_BUILD_TESTS and choose correct test for the binary.
         target_compile_definitions(${exe_name} PRIVATE LT_BUILD_TESTS)
