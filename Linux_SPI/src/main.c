@@ -49,6 +49,11 @@ int main(void)
     // simplicity. In production, you put it on heap if needed.   //
     ////////////////////////////////////////////////////////////////
     lt_handle_t __lt_handle__ = {0};
+#if LT_SEPARATE_L3_BUFF
+    uint8_t l3_buffer[LT_SIZE_OF_L3_BUFF] __attribute__((aligned(16))) = {0};
+    __lt_handle__.l3.buff = l3_buffer;
+    __lt_handle__.l3.buff_len = sizeof(l3_buffer);
+#endif
 
     ////////////////////////////////////////////////////////////////
     // DEVICE MAPPINGS                                            //
