@@ -177,6 +177,12 @@ endif()
 
 if (LT_BUILD_EXAMPLES)
 
+    # DISABLE IRREVERSIBLE EXAMPLES FOR SAFETY
+    # These examples perform irreversible operations on the TROPIC01.
+    # They are disabled by default to prevent accidental usage and should
+    # be normally used only with the model.
+    list(REMOVE_ITEM LIBTROPIC_EXAMPLE_LIST "lt_ex_hardware_wallet")
+
     # So we can include preprocessed example registry (lt_ex_registry.c.inc).
     include_directories(${CMAKE_CURRENT_BINARY_DIR}/libtropic)
 
