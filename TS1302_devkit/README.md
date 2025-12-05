@@ -37,7 +37,7 @@ MbedTLS 4.0.0 which we use in this repository requires:
   * jinja2
   * jsonschema
 
-The recommended method is to use Python virtual environment to install those packages:
+The recommended method is to use Python virtual environment to install those packages. Instructions for Linux:
 ```shell
 python3 -m venv .venv
 source .venv/bin/activate
