@@ -44,6 +44,21 @@ Make sure to have these dependencies installed:
   * Raspbian/Debian/Ubuntu: `sudo apt install gcc`
   * Fedora: `sudo dnf install gcc`
 
+MbedTLS 4.0.0 which we use in this repository requires:
+
+* Recent Python
+* Following Python packages:
+  * jinja2
+  * jsonschema
+
+The recommended method is to use Python virtual environment to install those packages:
+```shell
+python3 -m venv .venv
+source .venv/bin/activate
+pip3 install --upgrade pip
+pip3 install jinja2 jsonschema
+```
+
 ### System Setup
 Make sure that you have:
 
