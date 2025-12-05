@@ -47,7 +47,7 @@ Make sure to have these dependencies installed:
 MbedTLS 4.0.0 which we use in this repository requires:
 
 * Recent Python
-* Following Python packages:
+* The following Python packages:
   * jinja2
   * jsonschema
 
